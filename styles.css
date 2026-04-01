@@ -80,6 +80,7 @@ body {
   justify-content: center;
   width: 64px;
   height: 64px;
+  color: var(--accent);
 }
 
 .loader-logo svg {
