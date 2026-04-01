@@ -75,11 +75,16 @@ body {
 }
 
 .loader-logo {
-  font-family: var(--font-display);
-  font-size: 4rem;
-  color: var(--accent);
-  letter-spacing: 0.15em;
-  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+}
+
+.loader-logo svg {
+  width: 64px;
+  height: 64px;
 }
 
 .loader-bar-wrap {
