@@ -7,9 +7,10 @@
   'use strict';
 
   /* ── Pixel Loading Screen ──────────────────────────────────── */
-  const loader    = document.getElementById('loader');
-  const loaderBar = document.getElementById('loaderBar');
-  const loaderText = document.getElementById('loaderText');
+  const loader      = document.getElementById('loader');
+  const loaderBar   = document.getElementById('loaderBar');
+  const loaderText  = document.getElementById('loaderText');
+  const mainContent = document.getElementById('main-content');
 
   const loadingSteps = [
     { pct: 15,  msg: 'LOADING ASSETS...'   },
@@ -24,9 +25,10 @@
 
   function advanceLoader() {
     if (stepIndex >= loadingSteps.length) {
-      // Hide loader
+      // Hide loader and mark page content as no longer busy
       setTimeout(function () {
         loader.classList.add('hidden');
+        if (mainContent) { mainContent.removeAttribute('aria-busy'); }
         // Trigger reveal animations for elements already in viewport
         revealVisible();
       }, 300);
@@ -110,9 +112,9 @@
           navLinkEls.forEach(function (link) {
             var href = link.getAttribute('href');
             if (href === '#' + id) {
-              link.style.color = 'var(--accent)';
+              link.classList.add('active');
             } else {
-              link.style.color = '';
+              link.classList.remove('active');
             }
           });
         }
@@ -144,7 +146,8 @@
       var target   = document.getElementById(targetId);
       if (!target) return;
       e.preventDefault();
-      var offset    = 64; // navbar height
+      var navbarEl  = document.getElementById('navbar');
+      var offset    = navbarEl ? navbarEl.offsetHeight : 0;
       var targetTop = target.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({ top: targetTop, behavior: 'smooth' });
     });

@@ -4,18 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Golden Sunflower | Elite IT Consultancy</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap"
-    rel="stylesheet"
-  />
   <link rel="stylesheet" href="styles.css" />
+  <!-- Hide loader when JavaScript is unavailable so content remains accessible -->
+  <noscript><style>#loader { display: none !important; }</style></noscript>
 </head>
 <body>
 
   <!-- Pixel Loading Screen -->
-  <div id="loader" aria-hidden="true">
+  <div id="loader" role="status" aria-live="polite" aria-labelledby="loaderText">
     <div class="loader-inner">
       <div class="loader-logo">GS</div>
       <div class="loader-bar-wrap">
@@ -46,7 +42,7 @@
     </div>
   </nav>
 
-  <main>
+  <main aria-busy="true" id="main-content">
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
       <div class="hero-grid-bg" aria-hidden="true"></div>

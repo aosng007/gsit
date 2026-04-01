@@ -17,8 +17,8 @@
   --border-accent:#FFD700;
   --pixel-shadow: 4px 4px 0 #FFD700;
   --pixel-shadow-sm: 2px 2px 0 #FFD700;
-  --font-mono:    'Share Tech Mono', 'Courier New', monospace;
-  --font-display: 'VT323', 'Share Tech Mono', monospace;
+  --font-mono:    'Courier New', Courier, ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: 'Courier New', Courier, ui-monospace, monospace;
   --radius:       0px; /* hard pixel edges */
   --transition:   0.18s steps(4);
   --container-gutter: 1.5rem;
@@ -321,8 +321,10 @@ ul { list-style: none; }
   transition: width var(--transition);
 }
 
-.nav-link:hover { color: var(--accent); }
-.nav-link:hover::after { width: 100%; }
+.nav-link:hover,
+.nav-link.active { color: var(--accent); }
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
 
 .cta-link {
   color: var(--accent) !important;
@@ -962,5 +964,25 @@ ul { list-style: none; }
   .talent-grid,
   .industries-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ── Reduced Motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
+  }
+
+  :root {
+    --transition: 0s;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
