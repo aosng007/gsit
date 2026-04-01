@@ -413,6 +413,30 @@ ul { list-style: none; }
   opacity: 0.6;
 }
 
+.hero-blueprint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 215, 0, 0.55) 0px,
+      rgba(255, 215, 0, 0.55) 1px,
+      transparent 1px,
+      transparent 80px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 215, 0, 0.2) 0px,
+      rgba(255, 215, 0, 0.2) 1px,
+      transparent 1px,
+      transparent 80px
+    );
+  opacity: 0.05;
+  -webkit-mask-image: linear-gradient(90deg, transparent 28%, black 46%, black 54%, transparent 72%);
+  mask-image: linear-gradient(90deg, transparent 28%, black 46%, black 54%, transparent 72%);
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
@@ -946,9 +970,38 @@ ul { list-style: none; }
   transform: none;
 }
 
+/* ── Large Desktop (Cockpit Layout) ────────────────────────── */
+@media (min-width: 1200px) {
+  .hero-section {
+    justify-content: space-between;
+    padding: 7rem 3rem 4rem;
+    gap: 2rem;
+  }
+
+  .hero-content {
+    margin: 0;
+    padding-left: 2rem;
+    flex-shrink: 0;
+  }
+
+  .hero-decoration {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    padding-right: 2rem;
+    flex-shrink: 0;
+  }
+
+  .hero-terminal {
+    width: 420px;
+  }
+}
+
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .hero-decoration { display: none; }
+  .hero-blueprint { display: none; }
 
   .partners-content {
     grid-template-columns: 1fr;
