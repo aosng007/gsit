@@ -1,0 +1,153 @@
+/* =============================================================
+   GOLDEN SUNFLOWER — script.js
+   Pixel loading animation, scroll effects, mobile nav
+   ============================================================= */
+
+(function () {
+  'use strict';
+
+  /* ── Pixel Loading Screen ──────────────────────────────────── */
+  const loader    = document.getElementById('loader');
+  const loaderBar = document.getElementById('loaderBar');
+  const loaderText = document.getElementById('loaderText');
+
+  const loadingSteps = [
+    { pct: 15,  msg: 'LOADING ASSETS...'   },
+    { pct: 35,  msg: 'RENDERING UI...'     },
+    { pct: 55,  msg: 'CHECKING MODULES...' },
+    { pct: 75,  msg: 'CONNECTING...'       },
+    { pct: 90,  msg: 'FINALISING...'       },
+    { pct: 100, msg: 'SYSTEM READY!'       },
+  ];
+
+  let stepIndex = 0;
+
+  function advanceLoader() {
+    if (stepIndex >= loadingSteps.length) {
+      // Hide loader
+      setTimeout(function () {
+        loader.classList.add('hidden');
+        // Trigger reveal animations for elements already in viewport
+        revealVisible();
+      }, 300);
+      return;
+    }
+
+    const step = loadingSteps[stepIndex++];
+    loaderBar.style.width = step.pct + '%';
+    loaderText.textContent = step.msg;
+    setTimeout(advanceLoader, stepIndex < loadingSteps.length ? 280 : 500);
+  }
+
+  // Start loading sequence after a short delay
+  setTimeout(advanceLoader, 200);
+
+  /* ── Navbar scroll behaviour ───────────────────────────────── */
+  const navbar = document.getElementById('navbar');
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 40) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+  /* ── Mobile Navigation Toggle ──────────────────────────────── */
+  const navToggle = document.getElementById('navToggle');
+  const navLinks  = document.getElementById('navLinks');
+
+  navToggle.addEventListener('click', function () {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Close menu when a link is clicked
+  navLinks.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  /* ── Scroll-reveal ─────────────────────────────────────────── */
+  // Add reveal class to animatable elements
+  var revealTargets = document.querySelectorAll(
+    '.talent-card, .industry-card, .section-header, .partners-text, .partners-visual'
+  );
+
+  revealTargets.forEach(function (el) {
+    el.classList.add('reveal');
+  });
+
+  var revealObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  function revealVisible() {
+    revealTargets.forEach(function (el) {
+      revealObserver.observe(el);
+    });
+  }
+
+  /* ── Active nav link on scroll ─────────────────────────────── */
+  var sections = document.querySelectorAll('section[id], footer[id]');
+  var navLinkEls = document.querySelectorAll('.nav-link');
+
+  var sectionObserver = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.getAttribute('id');
+          navLinkEls.forEach(function (link) {
+            var href = link.getAttribute('href');
+            if (href === '#' + id) {
+              link.style.color = 'var(--accent)';
+            } else {
+              link.style.color = '';
+            }
+          });
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  sections.forEach(function (section) {
+    sectionObserver.observe(section);
+  });
+
+  /* ── Pixel cursor flash on card hover ─────────────────────── */
+  var pixelCards = document.querySelectorAll('.pixel-card');
+
+  pixelCards.forEach(function (card) {
+    card.addEventListener('mouseenter', function () {
+      card.style.setProperty('--transition', '0.12s steps(3)');
+    });
+    card.addEventListener('mouseleave', function () {
+      card.style.setProperty('--transition', '0.18s steps(4)');
+    });
+  });
+
+  /* ── Smooth scroll polyfill for anchor links ─────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var targetId = anchor.getAttribute('href').slice(1);
+      var target   = document.getElementById(targetId);
+      if (!target) return;
+      e.preventDefault();
+      var offset    = 64; // navbar height
+      var targetTop = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+    });
+  });
+
+}());
