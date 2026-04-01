@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 200 220"
+     width="200"
+     height="220"
+     role="img"
+     aria-label="Golden Sunflower logo">
+  <!--
+    viewBox 200×220 (≈10:11): intentional tall ratio to stack
+    binary dots (top) → sun symbol (centre) → wordmark (bottom).
+  -->
+
+  <title>Golden Sunflower</title>
+  <desc>Geometric sunflower logo with binary-style decorative dots, sun-rays, and JetBrains Mono wordmark in Sunflower Gold.</desc>
+
+
+  <!--
+    ── Binary-style decorative dots (top) ────────────────────────
+    8 dots centred at x=100, spacing 12 px, radius 3.5 px.
+    Pattern encodes the letter 'G' (ASCII 71 = 0b01000111):
+      bit 7→0  bit 6→1  bit 5→0  bit 4→0  bit 3→0  bit 2→1  bit 1→1  bit 0→1
+      empty  filled  empty   empty   empty  filled  filled  filled
+  -->
+  <!-- bit 7 = 0 : empty -->
+  <circle cx="58"  cy="22" r="3.5" fill="none" stroke="#FFC107" stroke-width="1.5"/>
+  <!-- bit 6 = 1 : filled -->
+  <circle cx="70"  cy="22" r="3.5" fill="#FFC107"/>
+  <!-- bit 5 = 0 : empty -->
+  <circle cx="82"  cy="22" r="3.5" fill="none" stroke="#FFC107" stroke-width="1.5"/>
+  <!-- bit 4 = 0 : empty -->
+  <circle cx="94"  cy="22" r="3.5" fill="none" stroke="#FFC107" stroke-width="1.5"/>
+  <!-- bit 3 = 0 : empty -->
+  <circle cx="106" cy="22" r="3.5" fill="none" stroke="#FFC107" stroke-width="1.5"/>
+  <!-- bit 2 = 1 : filled -->
+  <circle cx="118" cy="22" r="3.5" fill="#FFC107"/>
+  <!-- bit 1 = 1 : filled -->
+  <circle cx="130" cy="22" r="3.5" fill="#FFC107"/>
+  <!-- bit 0 = 1 : filled -->
+  <circle cx="142" cy="22" r="3.5" fill="#FFC107"/>
+
+  <!--
+    ── Geometric sun-lines (8 rays) ──────────────────────────────
+    Sun centre: (100, 120).
+    Each ray starts at inner radius 18 and ends at outer radius 50.
+    Small accent dots are placed at each ray tip.
+  -->
+
+  <!-- 0° — top -->
+  <line x1="100"    y1="102"   x2="100"    y2="70"    stroke="#FFC107" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="100"    cy="70"    r="2.5" fill="#FFC107"/>
+
+  <!-- 45° — top-right -->
+  <line x1="112.73" y1="107.27" x2="135.36" y2="84.64" stroke="#FFC107" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="135.36" cy="84.64" r="2.5" fill="#FFC107"/>
+
+  <!-- 90° — right -->
+  <line x1="118"    y1="120"   x2="150"    y2="120"   stroke="#FFC107" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="150"    cy="120"   r="2.5" fill="#FFC107"/>
+
+  <!-- 135° — bottom-right -->
+  <line x1="112.73" y1="132.73" x2="135.36" y2="155.36" stroke="#FFC107" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="135.36" cy="155.36" r="2.5" fill="#FFC107"/>
+
+  <!-- 180° — bottom -->
+  <line x1="100"    y1="138"   x2="100"    y2="170"   stroke="#FFC107" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="100"    cy="170"   r="2.5" fill="#FFC107"/>
+
+  <!-- 225° — bottom-left -->
+  <line x1="87.27"  y1="132.73" x2="64.64"  y2="155.36" stroke="#FFC107" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="64.64"  cy="155.36" r="2.5" fill="#FFC107"/>
+
+  <!-- 270° — left -->
+  <line x1="82"     y1="120"   x2="50"     y2="120"   stroke="#FFC107" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="50"     cy="120"   r="2.5" fill="#FFC107"/>
+
+  <!-- 315° — top-left -->
+  <line x1="87.27"  y1="107.27" x2="64.64"  y2="84.64" stroke="#FFC107" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="64.64"  cy="84.64" r="2.5" fill="#FFC107"/>
+
+  <!--
+    ── Sun centre ────────────────────────────────────────────────
+    Outer ring + filled inner dot give a "target / crosshair" look.
+  -->
+  <circle cx="100" cy="120" r="13" fill="none" stroke="#FFC107" stroke-width="2"/>
+  <circle cx="100" cy="120" r="5"  fill="#FFC107"/>
+
+  <!--
+    ── Wordmark ──────────────────────────────────────────────────
+    JetBrains Mono, Sunflower Gold (#FFC107), transparent background.
+  -->
+  <text
+    x="100"
+    y="203"
+    text-anchor="middle"
+    font-family="'JetBrains Mono', 'Roboto Mono', 'Courier New', monospace"
+    font-size="13"
+    font-weight="400"
+    fill="#FFC107"
+    letter-spacing="2"
+    aria-hidden="true">GOLDEN SUNFLOWER</text>
+
+</svg>

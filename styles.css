@@ -269,9 +269,10 @@ ul { list-style: none; }
   gap: 0.4rem;
 }
 
-.logo-icon {
-  font-size: 1.1rem;
-  color: var(--accent);
+.logo-svg-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 .nav-links {
