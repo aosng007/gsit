@@ -273,6 +273,7 @@ ul { list-style: none; }
   width: 20px;
   height: 20px;
   flex-shrink: 0;
+  color: var(--accent);
 }
 
 .nav-links {
