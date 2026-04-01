@@ -31,6 +31,17 @@
 
     var fullText = taglineEl.getAttribute('data-text') || taglineEl.textContent.trim();
     taglineEl.setAttribute('data-text', fullText);
+
+    // Respect users who prefer reduced motion: skip typing animation and timers.
+    var prefersReducedMotion = typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      taglineEl.textContent = fullText;
+      return;
+    }
+
     taglineEl.textContent = '';
     taglineEl.classList.add('typing-active');
 
