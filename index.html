@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Golden Sunflower | Elite IT Consultancy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <!-- Hide loader when JavaScript is unavailable so content remains accessible -->
   <noscript><style>#loader { display: none !important; }</style></noscript>
@@ -39,6 +42,12 @@
         <li><a href="#partners" class="nav-link">PARTNERS</a></li>
         <li><a href="#contact" class="nav-link cta-link">CONTACT</a></li>
       </ul>
+      <div class="nav-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span class="status-text">SYS: ONLINE</span>
+        <span class="status-divider" aria-hidden="true">//</span>
+        <span id="navClock" class="nav-clock"></span>
+      </div>
     </div>
   </nav>
 
@@ -63,32 +72,37 @@
         </div>
         <div class="hero-stats">
           <div class="stat-item">
-            <span class="stat-number accent">10+</span>
+            <span class="stat-number">10+</span>
             <span class="stat-label">YEARS EXP.</span>
           </div>
           <div class="stat-divider" aria-hidden="true">|</div>
           <div class="stat-item">
-            <span class="stat-number accent">50+</span>
+            <span class="stat-number">50+</span>
             <span class="stat-label">PLACEMENTS</span>
           </div>
           <div class="stat-divider" aria-hidden="true">|</div>
           <div class="stat-item">
-            <span class="stat-number accent">3</span>
+            <span class="stat-number">3</span>
             <span class="stat-label">SECTORS</span>
           </div>
         </div>
       </div>
       <div class="hero-decoration" aria-hidden="true">
-        <div class="pixel-sun">
-          <div class="sun-core"></div>
-          <div class="sun-ray ray-1"></div>
-          <div class="sun-ray ray-2"></div>
-          <div class="sun-ray ray-3"></div>
-          <div class="sun-ray ray-4"></div>
-          <div class="sun-ray ray-5"></div>
-          <div class="sun-ray ray-6"></div>
-          <div class="sun-ray ray-7"></div>
-          <div class="sun-ray ray-8"></div>
+        <div class="hero-terminal">
+          <div class="terminal-bar">
+            <span class="t-dot"></span>
+            <span class="t-dot"></span>
+            <span class="t-dot"></span>
+            <span class="t-title">gsit // system.status</span>
+          </div>
+          <div class="terminal-body">
+            <p class="t-line"><span class="t-prompt">$</span> gsit --status --verbose</p>
+            <p class="t-line t-output">[ OK ] Talent pipeline: ACTIVE</p>
+            <p class="t-line t-output">[ OK ] Gov clearance: VERIFIED</p>
+            <p class="t-line t-output">[ OK ] Enterprise grade: READY</p>
+            <p class="t-line t-output">[ OK ] Network peers: 50+ agencies</p>
+            <p class="t-line"><span class="t-prompt">$</span><span class="t-cursor">█</span></p>
+          </div>
         </div>
       </div>
     </section>
@@ -280,19 +294,19 @@
             </p>
             <div class="partners-pillars">
               <div class="pillar">
-                <span class="pillar-icon accent">&#9670;</span>
+                <span class="pillar-icon">&#9670;</span>
                 <span class="pillar-text">Rigorous Technical Vetting</span>
               </div>
               <div class="pillar">
-                <span class="pillar-icon accent">&#9670;</span>
+                <span class="pillar-icon">&#9670;</span>
                 <span class="pillar-text">Transparent Collaboration</span>
               </div>
               <div class="pillar">
-                <span class="pillar-icon accent">&#9670;</span>
+                <span class="pillar-icon">&#9670;</span>
                 <span class="pillar-text">Shared Success Model</span>
               </div>
               <div class="pillar">
-                <span class="pillar-icon accent">&#9670;</span>
+                <span class="pillar-icon">&#9670;</span>
                 <span class="pillar-text">Long-term Relationships</span>
               </div>
             </div>
@@ -324,7 +338,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <p class="footer-logo pixel-text accent">GOLDEN SUNFLOWER</p>
+          <p class="footer-logo pixel-text">GOLDEN SUNFLOWER</p>
           <p class="footer-motto">Elite IT Consultancy &mdash; Australia</p>
           <p class="footer-copy">&copy; 2024 Golden Sunflower. All rights reserved.</p>
         </div>

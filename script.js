@@ -1,12 +1,65 @@
 /* =============================================================
    GOLDEN SUNFLOWER — script.js
-   Pixel loading animation, scroll effects, mobile nav
+   Loading animation, typing effect, scroll effects, mobile nav
    ============================================================= */
 
 (function () {
   'use strict';
 
-  /* ── Pixel Loading Screen ──────────────────────────────────── */
+  /* ── Digital Clock ─────────────────────────────────────────── */
+  var navClock = document.getElementById('navClock');
+
+  function updateClock() {
+    var now = new Date();
+    var h = String(now.getHours()).padStart(2, '0');
+    var m = String(now.getMinutes()).padStart(2, '0');
+    var s = String(now.getSeconds()).padStart(2, '0');
+    navClock.textContent = h + ':' + m + ':' + s;
+  }
+
+  if (navClock) {
+    updateClock();
+    setInterval(updateClock, 1000);
+  }
+
+  /* ── Typing Effect ─────────────────────────────────────────── */
+  var TYPING_DELAY_MS = 65;
+
+  function startTypingEffect() {
+    var taglineEl = document.querySelector('.hero-tagline');
+    if (!taglineEl) return;
+
+    var fullText = taglineEl.getAttribute('data-text') || taglineEl.textContent.trim();
+    taglineEl.setAttribute('data-text', fullText);
+
+    // Respect users who prefer reduced motion: skip typing animation and timers.
+    var prefersReducedMotion = typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      taglineEl.textContent = fullText;
+      return;
+    }
+
+    taglineEl.textContent = '';
+    taglineEl.classList.add('typing-active');
+
+    var i = 0;
+    function typeNext() {
+      if (i < fullText.length) {
+        taglineEl.textContent += fullText[i++];
+        setTimeout(typeNext, TYPING_DELAY_MS);
+      } else {
+        setTimeout(function () {
+          taglineEl.classList.remove('typing-active');
+        }, 800);
+      }
+    }
+    typeNext();
+  }
+
+  /* ── Loading Screen ────────────────────────────────────────── */
   const loader      = document.getElementById('loader');
   const loaderBar   = document.getElementById('loaderBar');
   const loaderText  = document.getElementById('loaderText');
@@ -29,8 +82,9 @@
       setTimeout(function () {
         loader.classList.add('hidden');
         if (mainContent) { mainContent.removeAttribute('aria-busy'); }
-        // Trigger reveal animations for elements already in viewport
+        // Trigger reveal animations and typing effect
         revealVisible();
+        startTypingEffect();
       }, 300);
       return;
     }
@@ -125,18 +179,6 @@
 
   sections.forEach(function (section) {
     sectionObserver.observe(section);
-  });
-
-  /* ── Pixel cursor flash on card hover ─────────────────────── */
-  var pixelCards = document.querySelectorAll('.pixel-card');
-
-  pixelCards.forEach(function (card) {
-    card.addEventListener('mouseenter', function () {
-      card.style.setProperty('--transition', '0.12s steps(3)');
-    });
-    card.addEventListener('mouseleave', function () {
-      card.style.setProperty('--transition', '0.18s steps(4)');
-    });
   });
 
   /* ── Smooth scroll polyfill for anchor links ─────────────── */
