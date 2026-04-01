@@ -11,18 +11,30 @@
   var themeToggle = document.getElementById('themeToggle');
   var htmlEl = document.documentElement;
 
-  // Apply saved preference (the inline <script> in <head> already sets the
-  // attribute before paint; this ensures the toggle button state is correct).
-  if (!htmlEl.getAttribute('data-theme')) {
-    htmlEl.setAttribute('data-theme', 'dark');
+  // Helper: normalize to a known theme, persist to localStorage and keep
+  // the toggle button's aria-pressed state in sync with dark mode.
+  function applyTheme(theme) {
+    // Coerce to a known value; default to "dark" for any unexpected input.
+    var normalized = theme === 'light' ? 'light' : 'dark';
+    htmlEl.setAttribute('data-theme', normalized);
+    if (themeToggle) {
+      // aria-pressed="true" means the button is currently in "dark" state
+      themeToggle.setAttribute('aria-pressed', normalized === 'dark' ? 'true' : 'false');
+    }
+    try { localStorage.setItem('gs-theme', normalized); } catch (e) {}
   }
+
+  // Sync the toggle button with whichever theme is already active on load
+  // (set by either the HTML default or the inline <head> script).
+  applyTheme(htmlEl.getAttribute('data-theme'));
 
   if (themeToggle) {
     themeToggle.addEventListener('click', function () {
       var current = htmlEl.getAttribute('data-theme');
-      var next = current === 'dark' ? 'light' : 'dark';
-      htmlEl.setAttribute('data-theme', next);
-      try { localStorage.setItem('gs-theme', next); } catch (e) {}
+      // Normalize current before computing the next theme.
+      var normalizedCurrent = current === 'light' ? 'light' : 'dark';
+      var next = normalizedCurrent === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
     });
   }
 
