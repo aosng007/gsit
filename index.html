@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golden Sunflower | Elite IT Consultancy</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Hide loader when JavaScript is unavailable so content remains accessible -->
+  <noscript><style>#loader { display: none !important; }</style></noscript>
+</head>
+<body>
+
+  <!-- Pixel Loading Screen -->
+  <div id="loader" role="status" aria-live="polite" aria-labelledby="loaderText">
+    <div class="loader-inner">
+      <div class="loader-logo">GS</div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar" id="loaderBar"></div>
+      </div>
+      <div class="loader-text" id="loaderText">INITIALIZING...</div>
+    </div>
+  </div>
+
+  <!-- Scanline overlay -->
+  <div class="scanline" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo pixel-text">
+        <span class="logo-icon">&#9788;</span> GOLDEN SUNFLOWER
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#talent" class="nav-link">TALENT</a></li>
+        <li><a href="#industries" class="nav-link">INDUSTRIES</a></li>
+        <li><a href="#partners" class="nav-link">PARTNERS</a></li>
+        <li><a href="#contact" class="nav-link cta-link">CONTACT</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main aria-busy="true" id="main-content">
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="hero-badge pixel-badge">&#9670; EST. 2024 &#9670;</div>
+        <h1 class="hero-title pixel-text">
+          <span class="title-line">GOLDEN</span>
+          <span class="title-line accent">SUNFLOWER</span>
+        </h1>
+        <p class="hero-tagline">ELITE IT CONSULTANCY</p>
+        <p class="hero-description">
+          We connect Government, Retail &amp; Enterprise clients with world-class
+          Developers, Architects, QA Engineers, and Cloud Specialists.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#talent" class="btn btn-primary">EXPLORE TALENT &#9658;</a>
+          <a href="#contact" class="btn btn-secondary">GET IN TOUCH</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number accent">10+</span>
+            <span class="stat-label">YEARS EXP.</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true">|</div>
+          <div class="stat-item">
+            <span class="stat-number accent">50+</span>
+            <span class="stat-label">PLACEMENTS</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true">|</div>
+          <div class="stat-item">
+            <span class="stat-number accent">3</span>
+            <span class="stat-label">SECTORS</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-decoration" aria-hidden="true">
+        <div class="pixel-sun">
+          <div class="sun-core"></div>
+          <div class="sun-ray ray-1"></div>
+          <div class="sun-ray ray-2"></div>
+          <div class="sun-ray ray-3"></div>
+          <div class="sun-ray ray-4"></div>
+          <div class="sun-ray ray-5"></div>
+          <div class="sun-ray ray-6"></div>
+          <div class="sun-ray ray-7"></div>
+          <div class="sun-ray ray-8"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Talent Section -->
+    <section id="talent" class="section talent-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">&#9632; OUR TALENT &#9632;</span>
+          <h2 class="section-title pixel-text">CORE EXPERTISE</h2>
+          <p class="section-subtitle">
+            We source and place elite IT professionals across four critical disciplines.
+          </p>
+        </div>
+        <div class="talent-grid">
+
+          <div class="talent-card pixel-card" data-role="dev">
+            <div class="card-icon-wrap">
+              <div class="card-icon">&#10092;&#10093;</div>
+            </div>
+            <h3 class="card-title">SOFTWARE<br/>DEVELOPERS</h3>
+            <p class="card-desc">
+              Full-stack, backend, and frontend engineers skilled in modern
+              languages and frameworks—ready to ship at scale.
+            </p>
+            <ul class="card-tags">
+              <li>Java / Python</li>
+              <li>React / Node.js</li>
+              <li>Microservices</li>
+              <li>API Design</li>
+            </ul>
+            <div class="card-accent-bar"></div>
+          </div>
+
+          <div class="talent-card pixel-card" data-role="arch">
+            <div class="card-icon-wrap">
+              <div class="card-icon">&#9707;</div>
+            </div>
+            <h3 class="card-title">SOLUTION<br/>ARCHITECTS</h3>
+            <p class="card-desc">
+              Strategic thinkers who translate complex business requirements
+              into resilient, scalable technical blueprints.
+            </p>
+            <ul class="card-tags">
+              <li>Enterprise Architecture</li>
+              <li>System Design</li>
+              <li>Tech Strategy</li>
+              <li>Integration</li>
+            </ul>
+            <div class="card-accent-bar"></div>
+          </div>
+
+          <div class="talent-card pixel-card" data-role="qa">
+            <div class="card-icon-wrap">
+              <div class="card-icon">&#10003;</div>
+            </div>
+            <h3 class="card-title">QUALITY<br/>ASSURANCE</h3>
+            <p class="card-desc">
+              Automation and manual testing specialists who ensure your
+              software meets the highest standards before it ships.
+            </p>
+            <ul class="card-tags">
+              <li>Test Automation</li>
+              <li>Selenium / Cypress</li>
+              <li>Performance QA</li>
+              <li>ISTQB Certified</li>
+            </ul>
+            <div class="card-accent-bar"></div>
+          </div>
+
+          <div class="talent-card pixel-card" data-role="cloud">
+            <div class="card-icon-wrap">
+              <div class="card-icon">&#9729;</div>
+            </div>
+            <h3 class="card-title">CLOUD<br/>ENGINEERS</h3>
+            <p class="card-desc">
+              AWS, Azure, and GCP specialists who design, migrate, and
+              optimise cloud infrastructure for performance and cost.
+            </p>
+            <ul class="card-tags">
+              <li>AWS / Azure / GCP</li>
+              <li>DevOps / CI-CD</li>
+              <li>Terraform / K8s</li>
+              <li>FinOps</li>
+            </ul>
+            <div class="card-accent-bar"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Industry Expertise Section -->
+    <section id="industries" class="section industries-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">&#9632; INDUSTRIES &#9632;</span>
+          <h2 class="section-title pixel-text">SECTOR EXPERTISE</h2>
+          <p class="section-subtitle">
+            Deep domain knowledge across the sectors that demand the highest standards.
+          </p>
+        </div>
+        <div class="industries-grid">
+
+          <div class="industry-card pixel-card">
+            <div class="industry-icon-row">
+              <span class="industry-num accent">01</span>
+              <span class="industry-icon">&#127981;</span>
+            </div>
+            <h3 class="industry-title">GOVERNMENT<br/>SECTORS</h3>
+            <p class="industry-location accent-small">AUSTRALIA</p>
+            <p class="industry-desc">
+              Supplying vetted, security-cleared IT professionals to federal
+              and state government agencies. We understand compliance,
+              sovereignty, and the unique procurement frameworks of Australian
+              public sector projects.
+            </p>
+            <div class="industry-tags">
+              <span class="tag">Security Cleared</span>
+              <span class="tag">APS Compliant</span>
+              <span class="tag">Digital Gov</span>
+            </div>
+          </div>
+
+          <div class="industry-card pixel-card">
+            <div class="industry-icon-row">
+              <span class="industry-num accent">02</span>
+              <span class="industry-icon">&#128722;</span>
+            </div>
+            <h3 class="industry-title">RETAIL<br/>INDUSTRY</h3>
+            <p class="industry-location accent-small">OMNI-CHANNEL</p>
+            <p class="industry-desc">
+              From e-commerce platforms to in-store POS modernisation, we
+              provide IT talent who understand the pace, scale, and customer-
+              centric demands of modern retail and FMCG environments.
+            </p>
+            <div class="industry-tags">
+              <span class="tag">E-Commerce</span>
+              <span class="tag">POS Systems</span>
+              <span class="tag">Data Analytics</span>
+            </div>
+          </div>
+
+          <div class="industry-card pixel-card">
+            <div class="industry-icon-row">
+              <span class="industry-num accent">03</span>
+              <span class="industry-icon">&#127758;</span>
+            </div>
+            <h3 class="industry-title">MULTINATIONAL<br/>CORPORATIONS</h3>
+            <p class="industry-location accent-small">GLOBAL REACH</p>
+            <p class="industry-desc">
+              Partnering with large enterprises to staff complex, multi-region
+              IT transformation programmes. We align talent with corporate
+              governance, global standards, and cross-border delivery models.
+            </p>
+            <div class="industry-tags">
+              <span class="tag">Enterprise Scale</span>
+              <span class="tag">Transformation</span>
+              <span class="tag">Multi-Region</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Partnership Ecosystem Section -->
+    <section id="partners" class="section partners-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">&#9632; PARTNERSHIPS &#9632;</span>
+          <h2 class="section-title pixel-text">PARTNER ECOSYSTEM</h2>
+          <p class="section-subtitle">
+            Our strength comes from the quality of our network.
+          </p>
+        </div>
+        <div class="partners-content">
+          <div class="partners-text pixel-card">
+            <p class="partners-lead">
+              Golden Sunflower maintains <span class="accent">deep, trusted relationships</span>
+              with Australia's leading recruitment agencies and talent networks.
+            </p>
+            <p>
+              Rather than replacing recruiters, we act as a quality-assured
+              conduit—bringing additional rigour, technical vetting, and
+              domain expertise to every placement. Our agency partners benefit
+              from access to pre-screened, specialist IT talent that meets the
+              exacting standards of government and enterprise clients.
+            </p>
+            <div class="partners-pillars">
+              <div class="pillar">
+                <span class="pillar-icon accent">&#9670;</span>
+                <span class="pillar-text">Rigorous Technical Vetting</span>
+              </div>
+              <div class="pillar">
+                <span class="pillar-icon accent">&#9670;</span>
+                <span class="pillar-text">Transparent Collaboration</span>
+              </div>
+              <div class="pillar">
+                <span class="pillar-icon accent">&#9670;</span>
+                <span class="pillar-text">Shared Success Model</span>
+              </div>
+              <div class="pillar">
+                <span class="pillar-icon accent">&#9670;</span>
+                <span class="pillar-text">Long-term Relationships</span>
+              </div>
+            </div>
+          </div>
+          <div class="partners-visual" aria-hidden="true">
+            <div class="network-diagram">
+              <div class="node node-center">GS</div>
+              <div class="node node-a">AG1</div>
+              <div class="node node-b">AG2</div>
+              <div class="node node-c">AG3</div>
+              <div class="node node-d">AG4</div>
+              <div class="node node-e">AG5</div>
+              <svg class="network-lines" viewBox="0 0 220 220" aria-hidden="true">
+                <line x1="110" y1="110" x2="110" y2="20"  />
+                <line x1="110" y1="110" x2="195" y2="65"  />
+                <line x1="110" y1="110" x2="165" y2="175" />
+                <line x1="110" y1="110" x2="55"  y2="175" />
+                <line x1="110" y1="110" x2="25"  y2="65"  />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer / Contact -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-logo pixel-text accent">GOLDEN SUNFLOWER</p>
+          <p class="footer-motto">Elite IT Consultancy &mdash; Australia</p>
+          <p class="footer-copy">&copy; 2024 Golden Sunflower. All rights reserved.</p>
+        </div>
+        <div class="footer-contact">
+          <h4 class="footer-heading pixel-text">CONTACT US</h4>
+          <a href="mailto:contact@goldensunflower.com.au" class="contact-link">
+            <span class="contact-icon">&#9993;</span>
+            contact@goldensunflower.com.au
+          </a>
+          <a
+            href="https://www.linkedin.com/company/golden-sunflower"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-link"
+          >
+            <span class="contact-icon">in</span>
+            linkedin.com/company/golden-sunflower
+          </a>
+        </div>
+        <div class="footer-nav">
+          <h4 class="footer-heading pixel-text">NAVIGATE</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#talent">Talent</a></li>
+            <li><a href="#industries">Industries</a></li>
+            <li><a href="#partners">Partners</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="pixel-text footer-tagline">// BUILDING TOMORROW&apos;S WORKFORCE TODAY //</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
