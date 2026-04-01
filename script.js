@@ -1,10 +1,30 @@
 /* =============================================================
    GOLDEN SUNFLOWER — script.js
-   Loading animation, typing effect, scroll effects, mobile nav
+   Loading animation, typing effect, scroll effects, mobile nav,
+   dark/light theme toggle
    ============================================================= */
 
 (function () {
   'use strict';
+
+  /* ── Theme Toggle ──────────────────────────────────────────── */
+  var themeToggle = document.getElementById('themeToggle');
+  var htmlEl = document.documentElement;
+
+  // Apply saved preference (the inline <script> in <head> already sets the
+  // attribute before paint; this ensures the toggle button state is correct).
+  if (!htmlEl.getAttribute('data-theme')) {
+    htmlEl.setAttribute('data-theme', 'dark');
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var current = htmlEl.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      htmlEl.setAttribute('data-theme', next);
+      try { localStorage.setItem('gs-theme', next); } catch (e) {}
+    });
+  }
 
   /* ── Digital Clock ─────────────────────────────────────────── */
   var navClock = document.getElementById('navClock');
