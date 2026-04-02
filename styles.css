@@ -1207,6 +1207,7 @@ ul { list-style: none; }
   .hero-content {
     margin: 0;
     flex: 1;
+    max-width: 640px;
   }
 
   .hero-decoration {
