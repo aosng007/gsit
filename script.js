@@ -1,10 +1,46 @@
 /* =============================================================
    GOLDEN SUNFLOWER — script.js
-   Loading animation, typing effect, scroll effects, mobile nav
+   Loading animation, typing effect, scroll effects, mobile nav,
+   dark/light theme toggle
    ============================================================= */
 
 (function () {
   'use strict';
+
+  /* ── Theme Toggle ──────────────────────────────────────────── */
+  const themeToggle = document.getElementById('themeToggle');
+  const htmlEl = document.documentElement;
+
+  // Helper: normalize to a known theme and keep the toggle button's
+  // aria-pressed state in sync. Pass persist=true only on user interaction
+  // so first-time visitors don't get localStorage written on load.
+  function applyTheme(theme, persist) {
+    // Coerce to a known value; default to "dark" for any unexpected input.
+    const normalized = theme === 'light' ? 'light' : 'dark';
+    htmlEl.setAttribute('data-theme', normalized);
+    if (themeToggle) {
+      // aria-pressed="true" means the button is currently in "dark" state
+      themeToggle.setAttribute('aria-pressed', normalized === 'dark' ? 'true' : 'false');
+    }
+    if (persist) {
+      try { localStorage.setItem('gs-theme', normalized); } catch (e) {}
+    }
+  }
+
+  // Sync the toggle button with whichever theme is already active on load
+  // (set by either the HTML default or the inline <head> script).
+  // Do NOT persist — only write localStorage in response to a user toggle.
+  applyTheme(htmlEl.getAttribute('data-theme'), false);
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      const current = htmlEl.getAttribute('data-theme');
+      // Normalize current before computing the next theme.
+      const normalizedCurrent = current === 'light' ? 'light' : 'dark';
+      const next = normalizedCurrent === 'dark' ? 'light' : 'dark';
+      applyTheme(next, true);
+    });
+  }
 
   /* ── Digital Clock ─────────────────────────────────────────── */
   var navClock = document.getElementById('navClock');
