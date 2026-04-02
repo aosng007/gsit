@@ -1141,10 +1141,7 @@ ul { list-style: none; }
   }
 
   .hero-inner {
-    max-width: 1200px;
-    margin: 0 auto;
     gap: 80px;
-    padding: 0 2rem;
     position: relative;
     z-index: 1;
     --spine-offset: 51%; /* midpoint of gap between text column and terminal */
