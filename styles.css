@@ -580,6 +580,15 @@ ul { list-style: none; }
   50%       { opacity: 0;   transform: scale(4.5); }
 }
 
+/* Hero Inner – flex row wrapper for content + terminal */
+.hero-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
@@ -676,6 +685,7 @@ ul { list-style: none; }
   border: 1px solid var(--border);
   font-family: var(--font-mono);
   font-size: 0.75rem;
+  transition: transform 0.3s ease;
 }
 
 .terminal-bar {
@@ -1124,15 +1134,56 @@ ul { list-style: none; }
 /* ── Large Desktop (Cockpit Layout) ────────────────────────── */
 @media (min-width: 1200px) {
   .hero-section {
-    justify-content: space-between;
+    justify-content: center;
     padding: 7rem 3rem 4rem;
-    gap: 2rem;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 80px;
+    padding: 0 2rem;
+    --spine-offset: 51%; /* midpoint of gap between text column and terminal */
+  }
+
+  /* Digital Spine – vertical gold data line */
+  .hero-inner::before {
+    content: "";
+    position: absolute;
+    left: var(--spine-offset);
+    top: 10%;
+    width: 1px;
+    height: 80%;
+    background: linear-gradient(to bottom,
+      transparent,
+      rgba(255, 193, 7, 0.4),
+      rgba(255, 193, 7, 0.4),
+      transparent);
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.2);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* BNE_HQ vertical text decor */
+  .hero-inner::after {
+    content: "[ BNE_HQ // DATA_LINK ]";
+    position: absolute;
+    left: var(--spine-offset);
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--accent);
+    opacity: 0.3;
+    letter-spacing: 4px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
   }
 
   .hero-content {
     margin: 0;
-    padding-left: 2rem;
-    flex-shrink: 0;
+    flex: 1;
   }
 
   .hero-decoration {
@@ -1140,12 +1191,16 @@ ul { list-style: none; }
     right: auto;
     top: auto;
     transform: none;
-    padding-right: 2rem;
     flex-shrink: 0;
   }
 
   .hero-terminal {
-    width: 420px;
+    flex: 0 0 550px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 215, 0, 0.08);
+  }
+
+  .hero-terminal:hover {
+    transform: translateY(-5px) scale(1.02);
   }
 }
 
