@@ -505,6 +505,7 @@ ul { list-style: none; }
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
   padding: 7rem 1.5rem 4rem;
@@ -593,7 +594,7 @@ ul { list-style: none; }
   position: relative;
   z-index: 1;
   max-width: 640px;
-  margin: 0 auto 0 var(--container-gutter);
+  margin: 0 auto;
 }
 
 /* Digital Spine – vertical gold gradient connector
@@ -1225,6 +1226,36 @@ ul { list-style: none; }
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 1000px) {
   .nav-loc { display: none; }
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+  .hero-inner {
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: nowrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-content {
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .hero-decoration {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .hero-terminal {
+    width: 280px;
+  }
 }
 
 @media (max-width: 900px) {
