@@ -46,6 +46,8 @@
   --node-glow:             rgba(255, 215, 0, 0.1);
   --spine-color:           rgba(255, 215, 0, 0.4);
   --spine-glow:            rgba(255, 215, 0, 0.2);
+  --nebula-hover:          #FFC107;
+  --nebula-hover-glow:     rgba(255, 193, 7, 0.4);
 }
 
 /* ── Light Mode Overrides ───────────────────────────────────── */
@@ -85,6 +87,8 @@
   --node-glow:             rgba(197, 160, 89, 0.1);
   --spine-color:           rgba(197, 160, 89, 0.4);
   --spine-glow:            rgba(197, 160, 89, 0.2);
+  --nebula-hover:          #FFC107;
+  --nebula-hover-glow:     rgba(255, 193, 7, 0.4);
 }
 
 /* ── Reset & Base ───────────────────────────────────────────── */
@@ -570,12 +574,15 @@ ul { list-style: none; }
 }
 
 .tn-primary  { opacity: 0.2; }
-.tn-secondary { opacity: 0.1; font-size: 10px; }
+.tn-secondary {
+  opacity: 0.1;
+  font-size: 10px;
+}
 
 .tn-tag:hover {
   opacity: 0.8;
-  border-color: #FFC107;
-  box-shadow: 0 0 8px rgba(255, 193, 7, 0.4);
+  border-color: var(--nebula-hover);
+  box-shadow: 0 0 8px var(--nebula-hover-glow);
 }
 
 @media (min-width: 1024px) {
