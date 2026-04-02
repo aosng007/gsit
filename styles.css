@@ -1158,6 +1158,8 @@ ul { list-style: none; }
 /* ── Large Desktop (Cockpit Layout) ────────────────────────── */
 @media (min-width: 1200px) {
   .hero-section {
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
     padding: 7rem 3rem 4rem;
   }
