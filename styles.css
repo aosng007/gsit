@@ -1163,6 +1163,10 @@ ul { list-style: none; }
     position: relative;
     z-index: 1;
     --spine-offset: 51%; /* midpoint of gap between text column and terminal */
+    justify-content: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
   }
 
   /* Digital Spine – vertical gold data line */
@@ -1203,6 +1207,7 @@ ul { list-style: none; }
   .hero-content {
     margin: 0;
     flex: 1;
+    max-width: 640px;
   }
 
   .hero-decoration {
@@ -1211,6 +1216,8 @@ ul { list-style: none; }
     top: auto;
     transform: none;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
   }
 
   .hero-terminal {
