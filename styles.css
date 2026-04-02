@@ -552,7 +552,7 @@ ul { list-style: none; }
   width: 400px;
   pointer-events: none;
   z-index: 0;
-  color: #D4AF37;
+  color: var(--accent);
 }
 
 /* Fade only the continent/island outlines; keep Brisbane markers visible */
@@ -596,17 +596,23 @@ ul { list-style: none; }
   margin: 0 auto 0 var(--container-gutter);
 }
 
-/* Digital Spine – vertical gold gradient connector */
-.hero-content::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 10%;
-  width: 1px;
-  height: 80%;
-  background: linear-gradient(to bottom, transparent, #D4AF37, transparent);
-  opacity: 0.3;
-  z-index: -1;
+/* Digital Spine – vertical gold gradient connector
+   Use this implementation only below the large-screen breakpoint,
+   where .hero-inner::before (inside @media (min-width: 1200px))
+   takes over for the spine. */
+@media (max-width: 1199.98px) {
+  .hero-content::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 80%;
+    background: linear-gradient(to bottom, transparent, var(--spine-color, var(--accent)), transparent);
+    opacity: 0.3;
+    z-index: -1;
+  }
 }
 
 .hero-title {
