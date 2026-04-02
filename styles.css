@@ -36,6 +36,14 @@
   --terminal-bar-bg:   #161616;
   --terminal-output-color: #4ade80;
   --footer-bg:         #090909;
+  /* Derived tokens for previously-hardcoded RGBA values */
+  --nav-border-scrolled:   rgba(255, 215, 0, 0.25);
+  --status-glow:           rgba(255, 215, 0, 0.7);
+  --status-glow-dim:       rgba(255, 215, 0, 0.35);
+  --blueprint-line-strong: rgba(255, 215, 0, 0.55);
+  --blueprint-line-light:  rgba(255, 215, 0, 0.2);
+  --card-bar-bg:           rgba(255, 215, 0, 0.5);
+  --node-glow:             rgba(255, 215, 0, 0.1);
 }
 
 /* ── Light Mode Overrides ───────────────────────────────────── */
@@ -65,6 +73,14 @@
   --terminal-bar-bg:   #E8E8E8;
   --terminal-output-color: #166534;
   --footer-bg:         #F0F0F0;
+  /* Derived tokens – light overrides */
+  --nav-border-scrolled:   rgba(197, 160, 89, 0.35);
+  --status-glow:           rgba(197, 160, 89, 0.7);
+  --status-glow-dim:       rgba(197, 160, 89, 0.35);
+  --blueprint-line-strong: rgba(197, 160, 89, 0.55);
+  --blueprint-line-light:  rgba(197, 160, 89, 0.2);
+  --card-bar-bg:           rgba(197, 160, 89, 0.5);
+  --node-glow:             rgba(197, 160, 89, 0.1);
 }
 
 /* ── Reset & Base ───────────────────────────────────────────── */
@@ -296,7 +312,7 @@ ul { list-style: none; }
 }
 
 .navbar.scrolled {
-  border-bottom-color: rgba(255, 215, 0, 0.25);
+  border-bottom-color: var(--nav-border-scrolled);
 }
 
 .nav-container {
@@ -403,7 +419,7 @@ ul { list-style: none; }
   height: 6px;
   background: var(--accent);
   border-radius: 50%;
-  box-shadow: 0 0 6px rgba(255, 215, 0, 0.7);
+  box-shadow: 0 0 6px var(--status-glow);
   animation: status-pulse 2.5s ease infinite;
   flex-shrink: 0;
 }
@@ -507,15 +523,15 @@ ul { list-style: none; }
   background-image:
     repeating-linear-gradient(
       90deg,
-      rgba(255, 215, 0, 0.55) 0px,
-      rgba(255, 215, 0, 0.55) 1px,
+      var(--blueprint-line-strong) 0px,
+      var(--blueprint-line-strong) 1px,
       transparent 1px,
       transparent 80px
     ),
     repeating-linear-gradient(
       0deg,
-      rgba(255, 215, 0, 0.2) 0px,
-      rgba(255, 215, 0, 0.2) 1px,
+      var(--blueprint-line-light) 0px,
+      var(--blueprint-line-light) 1px,
       transparent 1px,
       transparent 80px
     );
@@ -532,10 +548,14 @@ ul { list-style: none; }
   transform: translateY(-50%);
   width: 58%;
   max-width: 700px;
-  opacity: 0.06;
   pointer-events: none;
   z-index: 0;
   color: var(--text-primary);
+}
+
+/* Fade only the continent/island outlines; keep Brisbane markers visible */
+.hero-aunz-map path {
+  opacity: 0.06;
 }
 
 .hero-aunz-map svg {
@@ -788,7 +808,7 @@ ul { list-style: none; }
   left: 0;
   right: 0;
   height: 1px;
-  background: rgba(255, 215, 0, 0.5);
+  background: var(--card-bar-bg);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
@@ -968,9 +988,9 @@ ul { list-style: none; }
   transform: translate(-50%, -50%);
   background: var(--bg-card-hover);
   color: var(--accent);
-  border-color: rgba(255, 215, 0, 0.4);
+  border-color: var(--cta-border);
   font-size: 0.7rem;
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.1);
+  box-shadow: 0 0 12px var(--node-glow);
   animation: none;
 }
 
@@ -1081,8 +1101,8 @@ ul { list-style: none; }
 }
 
 @keyframes status-pulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 6px rgba(255, 215, 0, 0.7); }
-  50%       { opacity: 0.65; box-shadow: 0 0 3px rgba(255, 215, 0, 0.35); }
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--status-glow); }
+  50%       { opacity: 0.65; box-shadow: 0 0 3px var(--status-glow-dim); }
 }
 
 @keyframes dash {

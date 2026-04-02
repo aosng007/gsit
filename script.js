@@ -8,14 +8,14 @@
   'use strict';
 
   /* ── Theme Toggle ──────────────────────────────────────────── */
-  var themeToggle = document.getElementById('themeToggle');
-  var htmlEl = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const htmlEl = document.documentElement;
 
   // Helper: normalize to a known theme, persist to localStorage and keep
   // the toggle button's aria-pressed state in sync with dark mode.
   function applyTheme(theme) {
     // Coerce to a known value; default to "dark" for any unexpected input.
-    var normalized = theme === 'light' ? 'light' : 'dark';
+    const normalized = theme === 'light' ? 'light' : 'dark';
     htmlEl.setAttribute('data-theme', normalized);
     if (themeToggle) {
       // aria-pressed="true" means the button is currently in "dark" state
@@ -30,10 +30,10 @@
 
   if (themeToggle) {
     themeToggle.addEventListener('click', function () {
-      var current = htmlEl.getAttribute('data-theme');
+      const current = htmlEl.getAttribute('data-theme');
       // Normalize current before computing the next theme.
-      var normalizedCurrent = current === 'light' ? 'light' : 'dark';
-      var next = normalizedCurrent === 'dark' ? 'light' : 'dark';
+      const normalizedCurrent = current === 'light' ? 'light' : 'dark';
+      const next = normalizedCurrent === 'dark' ? 'light' : 'dark';
       applyTheme(next);
     });
   }
