@@ -1130,7 +1130,7 @@ ul { list-style: none; }
     gap: 40px;
     position: relative;
     z-index: 1;
-    --spine-offset: 50%; /* midpoint of the gap between text column and terminal */
+    --spine-offset: calc(100% - 550px - 20px); /* center of 40px gap: 100% - terminal width - gap/2 */
     justify-content: space-between;
     width: 100%;
     max-width: 1200px;
