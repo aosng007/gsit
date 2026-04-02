@@ -87,8 +87,6 @@
   --node-glow:             rgba(197, 160, 89, 0.1);
   --spine-color:           rgba(197, 160, 89, 0.4);
   --spine-glow:            rgba(197, 160, 89, 0.2);
-  --nebula-hover:          #FFC107;
-  --nebula-hover-glow:     rgba(255, 193, 7, 0.4);
 }
 
 /* ── Reset & Base ───────────────────────────────────────────── */
@@ -554,7 +552,7 @@ ul { list-style: none; }
   display: none;
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -585,7 +583,7 @@ ul { list-style: none; }
   box-shadow: 0 0 8px var(--nebula-hover-glow);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .tech-nebula { display: block; }
 }
 
