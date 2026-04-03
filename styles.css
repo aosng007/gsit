@@ -148,7 +148,6 @@
   --text-muted:   #999999;
   --border:       rgba(0, 0, 0, 0.08);
   --border-accent:#854D0E;
-  --card-border:  rgba(0, 0, 0, 0.08);
   --font-heading: 'Source Serif 4', 'Georgia', serif;
   --font-body:    'Inter', system-ui, sans-serif;
   --nav-bg:            rgba(249, 248, 246, 0.94);
@@ -193,7 +192,7 @@
 [data-theme="editorial"] .talent-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 14px 44px rgba(0, 0, 0, 0.06);
-  border-color: rgba(0, 0, 0, 0.16);
+  border-color: var(--card-hover-border);
 }
 
 /* Blueprint: body uses a solid grid instead of dots */
@@ -298,16 +297,17 @@
   background: transparent;
 }
 
-/* Blueprint: theme toggle icon visibility */
+/* Blueprint: theme toggle icon visibility — show editorial icon → clicking switches to editorial */
 [data-theme="blueprint"] .theme-icon-sun  { display: none; }
 [data-theme="blueprint"] .theme-icon-moon { display: none; }
-[data-theme="blueprint"] .theme-icon-blueprint { display: inline; }
-[data-theme="blueprint"] .theme-icon-editorial { display: none; }
+[data-theme="blueprint"] .theme-icon-blueprint { display: none; }
+[data-theme="blueprint"] .theme-icon-editorial { display: inline; }
 
+/* Editorial: show moon → clicking switches back to dark */
 [data-theme="editorial"] .theme-icon-sun       { display: none; }
-[data-theme="editorial"] .theme-icon-moon      { display: none; }
+[data-theme="editorial"] .theme-icon-moon      { display: inline; }
 [data-theme="editorial"] .theme-icon-blueprint { display: none; }
-[data-theme="editorial"] .theme-icon-editorial { display: inline; }
+[data-theme="editorial"] .theme-icon-editorial { display: none; }
 
 /* ── Reset & Base ───────────────────────────────────────────── */
 *, *::before, *::after {
@@ -715,15 +715,17 @@ ul { list-style: none; }
   color: var(--accent);
 }
 
-/* In dark mode show sun (to switch to light); in light mode show moon (to switch to dark) */
+/* Each icon shows the *next* theme in the cycle: dark→light→blueprint→editorial→dark */
+/* dark (default): show sun → clicking switches to light */
 .theme-icon-sun       { display: inline; }
 .theme-icon-moon      { display: none; }
 .theme-icon-blueprint { display: none; }
 .theme-icon-editorial { display: none; }
 
+/* light: show blueprint icon → clicking switches to blueprint */
 [data-theme="light"] .theme-icon-sun       { display: none; }
-[data-theme="light"] .theme-icon-moon      { display: inline; }
-[data-theme="light"] .theme-icon-blueprint { display: none; }
+[data-theme="light"] .theme-icon-moon      { display: none; }
+[data-theme="light"] .theme-icon-blueprint { display: inline; }
 [data-theme="light"] .theme-icon-editorial { display: none; }
 
 /* ── Hero Section ───────────────────────────────────────────── */
