@@ -561,7 +561,7 @@ ul { list-style: none; }
 .shadow-tags-lower {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 12px;
 }
 
 .shadow-tag {
@@ -583,14 +583,6 @@ ul { list-style: none; }
 .shadow-tag.secondary {
   font-size: 10px;
   opacity: 0.28;
-}
-
-.shadow-tag:nth-child(odd) {
-  transform: translateX(5px);
-}
-
-.shadow-tag:nth-child(even) {
-  transform: translateX(-3px) translateY(2px);
 }
 
 .shadow-tag:hover {
