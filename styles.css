@@ -49,17 +49,19 @@
   --nebula-hover:          #FFC107;
   --nebula-hover-glow:     rgba(255, 193, 7, 0.4);
   /* ── Academic Curated tokens (dark / "Obsidian Tech") ── */
-  --accent-gold:    #FFC107;
-  --card-border:    rgba(255, 255, 255, 0.1);
-  --card-shadow:    none;
-  --font-serif:     'Source Serif 4', 'Charter', Georgia, 'Times New Roman', serif;
+  --accent-gold:       #FFC107;
+  --card-border:       rgba(255, 255, 255, 0.1);
+  --card-shadow:       none;
+  --card-shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --font-serif:        'Source Serif 4', 'Charter', Georgia, 'Times New Roman', serif;
 }
 
 /* ── Dark Mode explicit alias (mirrors :root defaults) ─────── */
 [data-theme="dark"] {
-  --accent-gold:    #FFC107;
-  --card-border:    rgba(255, 255, 255, 0.1);
-  --card-shadow:    none;
+  --accent-gold:       #FFC107;
+  --card-border:       rgba(255, 255, 255, 0.1);
+  --card-shadow:       none;
+  --card-shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 /* ── Light Mode Overrides ───────────────────────────────────── */
@@ -100,9 +102,10 @@
   --spine-color:           rgba(197, 160, 89, 0.4);
   --spine-glow:            rgba(197, 160, 89, 0.2);
   /* ── Academic Curated tokens (light / "Premium Paper") ── */
-  --accent-gold:    #854D0E;
-  --card-border:    rgba(0, 0, 0, 0.08);
-  --card-shadow:    0 10px 40px rgba(0, 0, 0, 0.03);
+  --accent-gold:       #854D0E;
+  --card-border:       rgba(0, 0, 0, 0.08);
+  --card-shadow:       0 10px 40px rgba(0, 0, 0, 0.03);
+  --card-shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.12);
 }
 
 /* ── Blueprint Theme (Theme 3 – Engineering Blueprint) ──────── */
@@ -144,9 +147,10 @@
   --nebula-hover:          #00FFFF;
   --nebula-hover-glow:     rgba(0, 255, 255, 0.35);
   /* ── Academic Curated tokens (blueprint) ── */
-  --accent-gold:    #FFD700;
-  --card-border:    rgba(0, 100, 200, 0.25);
-  --card-shadow:    none;
+  --accent-gold:       #FFD700;
+  --card-border:       rgba(0, 100, 200, 0.25);
+  --card-shadow:       none;
+  --card-shadow-hover: 0 20px 60px rgba(0, 100, 255, 0.2);
 }
 
 /* Blueprint: body uses a solid grid instead of dots */
@@ -1139,7 +1143,7 @@ ul { list-style: none; }
 
 .service-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .card-top-tag {
@@ -1195,7 +1199,7 @@ ul { list-style: none; }
 /* Blueprint: service cards get the cyan accent */
 [data-theme="blueprint"] .card-top-tag,
 [data-theme="blueprint"] .card-learn-more {
-  color: #00FFFF;
+  color: var(--nebula-hover);
 }
 
 /* ── Partners Section ───────────────────────────────────────── */
