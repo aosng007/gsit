@@ -89,6 +89,153 @@
   --spine-glow:            rgba(197, 160, 89, 0.2);
 }
 
+/* ── Blueprint Theme (Theme 3 – Engineering Blueprint) ──────── */
+[data-theme="blueprint"] {
+  --bg-primary:   #003366;
+  --bg-secondary: #002855;
+  --bg-card:      rgba(0, 40, 100, 0.65);
+  --bg-card-hover:rgba(0, 55, 120, 0.7);
+  --accent:       #FFD700;
+  --accent-dim:   #a07800;
+  --accent-hover: #ffe033;
+  --accent-glow:  rgba(255, 215, 0, 0.06);
+  --accent-glow-btn: rgba(255, 215, 0, 0.25);
+  --cta-border:   rgba(255, 215, 0, 0.4);
+  --cta-glow:     rgba(255, 215, 0, 0.15);
+  --card-hover-border: rgba(0, 255, 255, 0.35);
+  --text-primary: #FFFFFF;
+  --text-secondary:#B0C8E8;
+  --text-muted:   #6A8EB0;
+  --border:       #1a4a80;
+  --border-accent:#FFD700;
+  --nav-bg:            rgba(0, 30, 80, 0.94);
+  --nav-mobile-bg:     rgba(0, 30, 80, 0.98);
+  --body-dot:          transparent;
+  --grid-line:         rgba(0, 100, 200, 0.2);
+  --terminal-bg:       rgba(0, 20, 60, 0.55);
+  --terminal-bar-bg:   rgba(0, 30, 80, 0.65);
+  --terminal-output-color: #00FFFF;
+  --footer-bg:         #002244;
+  --nav-border-scrolled:   rgba(255, 215, 0, 0.25);
+  --status-glow:           rgba(255, 215, 0, 0.7);
+  --status-glow-dim:       rgba(255, 215, 0, 0.35);
+  --blueprint-line-strong: rgba(0, 150, 255, 0.45);
+  --blueprint-line-light:  rgba(0, 100, 200, 0.2);
+  --card-bar-bg:           rgba(0, 200, 255, 0.4);
+  --node-glow:             rgba(0, 150, 255, 0.15);
+  --spine-color:           rgba(100, 180, 255, 0.55);
+  --spine-glow:            rgba(0, 150, 255, 0.2);
+  --nebula-hover:          #00FFFF;
+  --nebula-hover-glow:     rgba(0, 255, 255, 0.35);
+}
+
+/* Blueprint: body uses a solid grid instead of dots */
+[data-theme="blueprint"] body {
+  background-color: var(--bg-primary);
+  background-image:
+    linear-gradient(rgba(0, 100, 200, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 100, 200, 0.2) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Blueprint: hide the hero dot-grid overlay (full-page grid already covers it) */
+[data-theme="blueprint"] .hero-grid-bg {
+  display: none;
+}
+
+/* Blueprint: main heading – pure white with a subtle cyan outer glow */
+[data-theme="blueprint"] .hero-title {
+  color: #FFFFFF;
+  text-shadow:
+    0 0 18px rgba(0, 255, 255, 0.45),
+    0 0 40px rgba(0, 200, 255, 0.18);
+}
+
+/* Blueprint: terminal – semi-transparent navy with dashed white border */
+[data-theme="blueprint"] .hero-terminal {
+  background: rgba(0, 20, 60, 0.55);
+  border: 1px dashed #FFFFFF;
+}
+
+[data-theme="blueprint"] .terminal-bar {
+  background: rgba(0, 30, 80, 0.65);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+/* Blueprint: vertical spine with ruler tick marks (large-screen) */
+@media (min-width: 1200px) {
+  [data-theme="blueprint"] .hero-inner::before {
+    width: 11px;
+    left: calc(var(--spine-offset) - 5px);
+    background:
+      /* center vertical data line */
+      linear-gradient(to right,
+        transparent 5px, var(--spine-color) 5px,
+        var(--spine-color) 6px, transparent 6px),
+      /* horizontal tick marks every 50 px */
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 47px,
+        var(--spine-color) 47px,
+        var(--spine-color) 50px
+      );
+    box-shadow: none;
+  }
+}
+
+/* Blueprint: vertical spine with ruler tick marks (small-screen) */
+@media (max-width: 1199.98px) {
+  [data-theme="blueprint"] .hero-content::before {
+    width: 11px;
+    left: calc(50% - 5px);
+    background:
+      linear-gradient(to right,
+        transparent 5px, var(--spine-color) 5px,
+        var(--spine-color) 6px, transparent 6px),
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 47px,
+        var(--spine-color) 47px,
+        var(--spine-color) 50px
+      );
+    opacity: 0.5;
+  }
+}
+
+/* Blueprint: tech tags – monospace, cyan text, cyan border, no fill */
+[data-theme="blueprint"] .shadow-tag {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  color: #00FFFF;
+  border-color: #00FFFF;
+  background: transparent;
+  text-shadow: none;
+  opacity: 0.65;
+}
+
+[data-theme="blueprint"] .shadow-tag.secondary {
+  opacity: 0.5;
+}
+
+[data-theme="blueprint"] .shadow-tag:hover {
+  opacity: 1;
+  border-color: #00FFFF;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+[data-theme="blueprint"] .tag {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  color: #00FFFF;
+  border: 1px solid #00FFFF;
+  background: transparent;
+}
+
+/* Blueprint: theme toggle icon visibility */
+[data-theme="blueprint"] .theme-icon-sun  { display: none; }
+[data-theme="blueprint"] .theme-icon-moon { display: none; }
+[data-theme="blueprint"] .theme-icon-blueprint { display: inline; }
+
 /* ── Reset & Base ───────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -496,11 +643,13 @@ ul { list-style: none; }
 }
 
 /* In dark mode show sun (to switch to light); in light mode show moon (to switch to dark) */
-.theme-icon-sun  { display: inline; }
-.theme-icon-moon { display: none; }
+.theme-icon-sun       { display: inline; }
+.theme-icon-moon      { display: none; }
+.theme-icon-blueprint { display: none; }
 
-[data-theme="light"] .theme-icon-sun  { display: none; }
-[data-theme="light"] .theme-icon-moon { display: inline; }
+[data-theme="light"] .theme-icon-sun       { display: none; }
+[data-theme="light"] .theme-icon-moon      { display: inline; }
+[data-theme="light"] .theme-icon-blueprint { display: none; }
 
 /* ── Hero Section ───────────────────────────────────────────── */
 .hero-section {
