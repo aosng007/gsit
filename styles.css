@@ -569,11 +569,12 @@ ul { list-style: none; }
   cursor: default;
   user-select: none;
   transition: opacity 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  text-shadow: 0 0 3px rgba(255, 193, 7, 0.4);
 }
 
-.tn-primary  { opacity: 0.2; }
+.tn-primary  { opacity: 0.35; }
 .tn-secondary {
-  opacity: 0.1;
+  opacity: 0.3;
   font-size: 10px;
 }
 
@@ -584,7 +585,14 @@ ul { list-style: none; }
 }
 
 @media (min-width: 1200px) {
-  .tech-nebula { display: block; }
+  .tech-nebula {
+    display: block;
+    /* Constrain to "central-right" zone: from the Digital Spine to the
+       right edge of the hero-inner (max-width: 1200px, centered).
+       Avoids viewport-relative overflow past the hero layout bounds. */
+    left: calc(50% + 30px);
+    right: max(3rem, calc(50% - 600px));
+  }
 }
 
 /* Hero Inner – flex row wrapper for content + terminal */
