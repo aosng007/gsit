@@ -1,7 +1,7 @@
 /* =============================================================
    GOLDEN SUNFLOWER — script.js
    Loading animation, typing effect, scroll effects, mobile nav,
-   dark/light/blueprint theme toggle
+   dark/light/blueprint/editorial theme toggle
    ============================================================= */
 
 (function () {
@@ -22,8 +22,10 @@
     const normalized = THEMES.includes(theme) ? theme : 'dark';
     htmlEl.setAttribute('data-theme', normalized);
     if (themeToggle) {
-      // aria-pressed="true" means the button is currently in "dark" state
-      themeToggle.setAttribute('aria-pressed', normalized === 'dark' ? 'true' : 'false');
+      // Update aria-label to announce the next theme in the cycle
+      const nextIndex = (THEMES.indexOf(normalized) + 1) % THEMES.length;
+      const next = THEMES[nextIndex];
+      themeToggle.setAttribute('aria-label', 'Switch to ' + next + ' theme');
     }
     if (persist) {
       try { localStorage.setItem('gs-theme', normalized); } catch (e) {}
