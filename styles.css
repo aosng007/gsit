@@ -48,6 +48,12 @@
   --spine-glow:            rgba(255, 215, 0, 0.2);
   --nebula-hover:          #FFC107;
   --nebula-hover-glow:     rgba(255, 193, 7, 0.4);
+  /* ── Academic Curated tokens (dark / "Obsidian Tech") ── */
+  --accent-gold:       #FFC107;
+  --card-border:       rgba(255, 255, 255, 0.1);
+  --card-shadow:       none;
+  --card-shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --font-serif:        'Source Serif 4', 'Charter', Georgia, 'Times New Roman', serif;
 }
 
 /* ── Light Mode Overrides ───────────────────────────────────── */
@@ -87,6 +93,11 @@
   --node-glow:             rgba(197, 160, 89, 0.1);
   --spine-color:           rgba(197, 160, 89, 0.4);
   --spine-glow:            rgba(197, 160, 89, 0.2);
+  /* ── Academic Curated tokens (light / "Premium Paper") ── */
+  --accent-gold:       #854D0E;
+  --card-border:       rgba(0, 0, 0, 0.08);
+  --card-shadow:       0 10px 40px rgba(0, 0, 0, 0.03);
+  --card-shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.12);
 }
 
 /* ── Blueprint Theme (Theme 3 – Engineering Blueprint) ──────── */
@@ -127,6 +138,11 @@
   --spine-glow:            rgba(0, 150, 255, 0.2);
   --nebula-hover:          #00FFFF;
   --nebula-hover-glow:     rgba(0, 255, 255, 0.35);
+  /* ── Academic Curated tokens (blueprint) ── */
+  --accent-gold:       #FFD700;
+  --card-border:       rgba(0, 100, 200, 0.25);
+  --card-shadow:       none;
+  --card-shadow-hover: 0 20px 60px rgba(0, 100, 255, 0.2);
 }
 
 /* Blueprint: body uses a solid grid instead of dots */
@@ -257,6 +273,7 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
   position: relative;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* ── Scanline Overlay ───────────────────────────────────────── */
@@ -391,7 +408,8 @@ ul { list-style: none; }
   background: var(--bg-card);
   border: 1px solid var(--border);
   transition: border-color var(--transition),
-              background var(--transition);
+              background-color 0.4s ease,
+              color 0.4s ease;
   cursor: default;
 }
 
@@ -461,7 +479,7 @@ ul { list-style: none; }
   background: var(--nav-bg);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(8px);
-  transition: border-color 0.25s ease;
+  transition: border-color 0.4s ease, background-color 0.4s ease, color 0.4s ease;
 }
 
 .navbar.scrolled {
@@ -1082,6 +1100,108 @@ ul { list-style: none; }
   border: 1px solid var(--border);
   padding: 0.2rem 0.55rem;
   background: rgba(255,255,255,0.02);
+}
+
+
+/* ── Academic Curated Services Section ──────────────────────── */
+.curated-section {
+  background: var(--bg-primary);
+  transition: background-color 0.4s ease;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease,
+              box-shadow 0.4s ease,
+              background-color 0.4s ease,
+              color 0.4s ease,
+              border-color 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card-top-tag {
+  font-size: 0.72rem;
+  font-family: var(--font-body);
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  color: var(--accent-gold);
+  transition: color 0.4s ease;
+}
+
+.service-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  transition: color 0.4s ease;
+}
+
+.service-card-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex: 1;
+  transition: color 0.4s ease;
+}
+
+.card-learn-more {
+  display: inline-block;
+  color: var(--accent-gold);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  align-self: flex-start;
+}
+
+.service-card:hover .card-learn-more,
+.service-card:focus-within .card-learn-more,
+.card-learn-more:focus,
+.card-learn-more:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .card-learn-more {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+}
+
+.card-learn-more:hover {
+  text-decoration: underline;
+}
+
+/* Blueprint: service cards get the cyan accent */
+[data-theme="blueprint"] .card-top-tag,
+[data-theme="blueprint"] .card-learn-more {
+  color: var(--nebula-hover);
 }
 
 /* ── Partners Section ───────────────────────────────────────── */
