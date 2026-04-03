@@ -569,7 +569,7 @@ ul { list-style: none; }
   font-size: 11px;
   line-height: 1;
   padding: 3px 8px;
-  border: 1px solid currentColor;
+  border: 1px solid var(--accent);
   color: var(--text-primary);
   white-space: nowrap;
   pointer-events: auto;
@@ -1179,14 +1179,17 @@ ul { list-style: none; }
   }
 
   .hero-inner {
-    gap: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1300px;
+    margin: 0 auto;
+    min-height: 80vh;
+    align-items: center;
+    gap: 60px;
     position: relative;
     z-index: 1;
-    --spine-offset: calc(100% - 550px - 20px); /* center of 40px gap: 100% - terminal width - gap/2 */
-    justify-content: space-between;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    --spine-offset: 50%; /* center of the gap between the two grid columns */
   }
 
   /* Digital Spine – vertical gold data line */
@@ -1213,7 +1216,7 @@ ul { list-style: none; }
     position: absolute;
     left: var(--spine-offset);
     top: 50%;
-    transform: translateY(-50%) rotate(-90deg);
+    transform: translate(-50%, -50%) rotate(-90deg);
     font-family: var(--font-mono);
     font-size: 10px;
     color: var(--accent);
@@ -1226,7 +1229,6 @@ ul { list-style: none; }
 
   .hero-content {
     margin: 0;
-    flex: 1;
     max-width: 640px;
     z-index: 2;
   }
@@ -1236,7 +1238,6 @@ ul { list-style: none; }
     right: auto;
     top: auto;
     transform: none;
-    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1245,7 +1246,7 @@ ul { list-style: none; }
   }
 
   .hero-terminal {
-    flex: 0 0 550px;
+    width: 300px;
     position: relative;
     z-index: 2;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--accent-glow);
