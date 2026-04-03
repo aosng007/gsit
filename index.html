@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Golden Sunflower | Elite IT Consultancy</title>
   <!-- Apply saved theme immediately to prevent flash of wrong theme -->
-  <script>(function(){try{var t=localStorage.getItem('gs-theme');if(t){t=t.toLowerCase();if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}}catch(e){}})();</script>
+  <script>(function(){try{var t=localStorage.getItem('gs-theme');if(t){t=t.toLowerCase();var valid=['dark','light','solar-eclipse','golden-hour'];if(valid.indexOf(t)!==-1){document.documentElement.setAttribute('data-theme',t);}}}catch(e){}})();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -105,9 +105,11 @@
         <li><a href="#partners" class="nav-link">PARTNERS</a></li>
         <li><a href="#contact" class="nav-link cta-link">CONTACT</a></li>
       </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
         <span class="theme-icon-sun" aria-hidden="true">&#9728;</span>
         <span class="theme-icon-moon" aria-hidden="true">&#9790;</span>
+        <span class="theme-icon-eclipse" aria-hidden="true">&#9737;</span>
+        <span class="theme-icon-sunset" aria-hidden="true">&#9680;</span>
       </button>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>

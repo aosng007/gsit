@@ -1,7 +1,7 @@
 /* =============================================================
    GOLDEN SUNFLOWER — script.js
    Loading animation, typing effect, scroll effects, mobile nav,
-   dark/light theme toggle
+   dark/light/solar-eclipse/golden-hour theme toggle
    ============================================================= */
 
 (function () {
@@ -11,12 +11,14 @@
   const themeToggle = document.getElementById('themeToggle');
   const htmlEl = document.documentElement;
 
+  const THEMES = ['dark', 'light', 'solar-eclipse', 'golden-hour'];
+
   // Helper: normalize to a known theme and keep the toggle button's
   // aria-pressed state in sync. Pass persist=true only on user interaction
   // so first-time visitors don't get localStorage written on load.
   function applyTheme(theme, persist) {
     // Coerce to a known value; default to "dark" for any unexpected input.
-    const normalized = theme === 'light' ? 'light' : 'dark';
+    const normalized = THEMES.includes(theme) ? theme : 'dark';
     htmlEl.setAttribute('data-theme', normalized);
     if (themeToggle) {
       // aria-pressed="true" means the button is currently in "dark" state
@@ -35,9 +37,8 @@
   if (themeToggle) {
     themeToggle.addEventListener('click', function () {
       const current = htmlEl.getAttribute('data-theme');
-      // Normalize current before computing the next theme.
-      const normalizedCurrent = current === 'light' ? 'light' : 'dark';
-      const next = normalizedCurrent === 'dark' ? 'light' : 'dark';
+      const currentIndex = THEMES.indexOf(current);
+      const next = THEMES[(currentIndex < 0 ? 0 : currentIndex + 1) % THEMES.length];
       applyTheme(next, true);
     });
   }
