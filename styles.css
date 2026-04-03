@@ -129,6 +129,73 @@
   --nebula-hover-glow:     rgba(0, 255, 255, 0.35);
 }
 
+/* ── Editorial Theme (Theme 4 – Claude-Inspired) ────────────── */
+[data-theme="editorial"] {
+  --bg-primary:   #F9F8F6;
+  --bg-secondary: #FFFFFF;
+  --bg-card:      #FFFFFF;
+  --bg-card-hover:#F5F4F2;
+  --accent:       #854D0E;
+  --accent-dim:   #5c3609;
+  --accent-hover: #a36012;
+  --accent-glow:  rgba(133, 77, 14, 0.06);
+  --accent-glow-btn: rgba(133, 77, 14, 0.18);
+  --cta-border:   rgba(133, 77, 14, 0.4);
+  --cta-glow:     rgba(133, 77, 14, 0.08);
+  --card-hover-border: rgba(0, 0, 0, 0.16);
+  --text-primary: #1D1D1D;
+  --text-secondary:#666666;
+  --text-muted:   #999999;
+  --border:       rgba(0, 0, 0, 0.08);
+  --border-accent:#854D0E;
+  --card-border:  rgba(0, 0, 0, 0.08);
+  --font-heading: 'Source Serif 4', 'Georgia', serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --nav-bg:            rgba(249, 248, 246, 0.94);
+  --nav-mobile-bg:     rgba(249, 248, 246, 0.98);
+  --body-dot:          transparent;
+  --grid-line:         rgba(0, 0, 0, 0.03);
+  --terminal-bg:       #F0EEE9;
+  --terminal-bar-bg:   #E8E6E0;
+  --terminal-output-color: #166534;
+  --footer-bg:         #F0EEE9;
+  --nav-border-scrolled:   rgba(133, 77, 14, 0.25);
+  --status-glow:           rgba(133, 77, 14, 0.6);
+  --status-glow-dim:       rgba(133, 77, 14, 0.3);
+  --blueprint-line-strong: rgba(133, 77, 14, 0.35);
+  --blueprint-line-light:  rgba(133, 77, 14, 0.15);
+  --card-bar-bg:           rgba(133, 77, 14, 0.4);
+  --node-glow:             rgba(133, 77, 14, 0.08);
+  --spine-color:           rgba(133, 77, 14, 0.35);
+  --spine-glow:            rgba(133, 77, 14, 0.15);
+  --nebula-hover:          #a36012;
+  --nebula-hover-glow:     rgba(133, 77, 14, 0.25);
+}
+
+/* Editorial: apply serif font to headings */
+[data-theme="editorial"] h1,
+[data-theme="editorial"] h2,
+[data-theme="editorial"] h3 {
+  font-family: var(--font-heading);
+}
+
+/* Editorial: cards use no glow, soft shadow only */
+[data-theme="editorial"] .pixel-card,
+[data-theme="editorial"] .talent-card {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+  transition: border-color var(--transition),
+              background var(--transition),
+              box-shadow var(--transition),
+              transform var(--transition);
+}
+
+[data-theme="editorial"] .pixel-card:hover,
+[data-theme="editorial"] .talent-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.16);
+}
+
 /* Blueprint: body uses a solid grid instead of dots */
 [data-theme="blueprint"] body {
   background-color: var(--bg-primary);
@@ -235,6 +302,12 @@
 [data-theme="blueprint"] .theme-icon-sun  { display: none; }
 [data-theme="blueprint"] .theme-icon-moon { display: none; }
 [data-theme="blueprint"] .theme-icon-blueprint { display: inline; }
+[data-theme="blueprint"] .theme-icon-editorial { display: none; }
+
+[data-theme="editorial"] .theme-icon-sun       { display: none; }
+[data-theme="editorial"] .theme-icon-moon      { display: none; }
+[data-theme="editorial"] .theme-icon-blueprint { display: none; }
+[data-theme="editorial"] .theme-icon-editorial { display: inline; }
 
 /* ── Reset & Base ───────────────────────────────────────────── */
 *, *::before, *::after {
@@ -646,10 +719,12 @@ ul { list-style: none; }
 .theme-icon-sun       { display: inline; }
 .theme-icon-moon      { display: none; }
 .theme-icon-blueprint { display: none; }
+.theme-icon-editorial { display: none; }
 
 [data-theme="light"] .theme-icon-sun       { display: none; }
 [data-theme="light"] .theme-icon-moon      { display: inline; }
 [data-theme="light"] .theme-icon-blueprint { display: none; }
+[data-theme="light"] .theme-icon-editorial { display: none; }
 
 /* ── Hero Section ───────────────────────────────────────────── */
 .hero-section {

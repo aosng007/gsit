@@ -11,8 +11,8 @@
   const themeToggle = document.getElementById('themeToggle');
   const htmlEl = document.documentElement;
 
-  // Known themes in cycle order: dark → light → blueprint → dark
-  const THEMES = ['dark', 'light', 'blueprint'];
+  // Known themes in cycle order: dark → light → blueprint → editorial → dark
+  const THEMES = ['dark', 'light', 'blueprint', 'editorial'];
 
   // Helper: normalize to a known theme and keep the toggle button's
   // aria-pressed state in sync. Pass persist=true only on user interaction
