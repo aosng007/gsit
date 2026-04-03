@@ -408,7 +408,6 @@ ul { list-style: none; }
   background: var(--bg-card);
   border: 1px solid var(--border);
   transition: border-color var(--transition),
-              background var(--transition),
               background-color 0.4s ease,
               color 0.4s ease;
   cursor: default;
@@ -1180,13 +1179,20 @@ ul { list-style: none; }
 }
 
 .service-card:hover .card-learn-more,
-.service-card:focus .card-learn-more,
 .service-card:focus-within .card-learn-more,
 .card-learn-more:focus,
 .card-learn-more:focus-visible {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .card-learn-more {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
 }
 
 .card-learn-more:hover {
