@@ -89,91 +89,6 @@
   --spine-glow:            rgba(197, 160, 89, 0.2);
 }
 
-/* ── Solar Eclipse Theme ────────────────────────────────────── */
-[data-theme="solar-eclipse"] {
-  --bg-primary:   #0F0E0C;
-  --bg-secondary: #131210;
-  --bg-card:      #171512;
-  --bg-card-hover:#1C1A16;
-  --accent:       #FFBF00;
-  --accent-dim:   #a07800;
-  --accent-hover: #ffd04d;
-  --accent-glow:  rgba(255, 191, 0, 0.06);
-  --accent-glow-btn: rgba(255, 191, 0, 0.3);
-  --cta-border:   rgba(255, 191, 0, 0.4);
-  --cta-glow:     rgba(255, 191, 0, 0.15);
-  --card-hover-border: rgba(255, 191, 0, 0.3);
-  --text-primary: #FFFFFF;
-  --text-secondary:#8E8E8E;
-  --text-muted:   #5A5A5A;
-  --border:       #2A2720;
-  --border-accent:#FFBF00;
-  --nav-bg:            rgba(15, 14, 12, 0.94);
-  --nav-mobile-bg:     rgba(15, 14, 12, 0.98);
-  --body-dot:          rgba(255, 191, 0, 0.03);
-  --grid-line:         rgba(255, 191, 0, 0.02);
-  --terminal-bg:       rgba(15, 14, 12, 0.9);
-  --terminal-bar-bg:   rgba(19, 18, 16, 0.9);
-  --terminal-output-color: #F5F5DC;
-  --footer-bg:         #0A0908;
-  --nav-border-scrolled:   rgba(255, 191, 0, 0.25);
-  --status-glow:           rgba(255, 191, 0, 0.7);
-  --status-glow-dim:       rgba(255, 191, 0, 0.35);
-  --blueprint-line-strong: rgba(255, 191, 0, 0.55);
-  --blueprint-line-light:  rgba(255, 191, 0, 0.2);
-  --card-bar-bg:           rgba(255, 191, 0, 0.5);
-  --node-glow:             rgba(255, 191, 0, 0.1);
-  --spine-color:           rgba(255, 191, 0, 0.5);
-  --spine-glow:            rgba(255, 191, 0, 0.25);
-  --nebula-hover:          #FFBF00;
-  --nebula-hover-glow:     rgba(255, 191, 0, 0.4);
-  /* Solar Eclipse extras */
-  --solar-heading-shadow: 0 0 20px rgba(255, 191, 0, 0.18);
-  --solar-flare-color:    rgba(255, 191, 0, 0.5);
-}
-
-/* ── Golden Hour Theme ──────────────────────────────────────── */
-[data-theme="golden-hour"] {
-  --bg-primary:   #12100E;
-  --bg-secondary: #161310;
-  --bg-card:      #1A1713;
-  --bg-card-hover:#201D18;
-  --accent:       #D4AF37;
-  --accent-dim:   #9a7e26;
-  --accent-hover: #e0bf4d;
-  --accent-glow:  rgba(212, 175, 55, 0.06);
-  --accent-glow-btn: rgba(212, 175, 55, 0.28);
-  --cta-border:   rgba(212, 175, 55, 0.45);
-  --cta-glow:     rgba(212, 175, 55, 0.15);
-  --card-hover-border: rgba(212, 175, 55, 0.35);
-  --text-primary: #FAF9F6;
-  --text-secondary:#C8C5BE;
-  --text-muted:   #7A7570;
-  --border:       #2C2820;
-  --border-accent:#D4AF37;
-  --nav-bg:            rgba(18, 16, 14, 0.94);
-  --nav-mobile-bg:     rgba(18, 16, 14, 0.98);
-  --body-dot:          rgba(212, 175, 55, 0.1);
-  --grid-line:         rgba(212, 175, 55, 0.05);
-  --terminal-bg:       rgba(18, 16, 14, 0.8);
-  --terminal-bar-bg:   rgba(24, 21, 18, 0.85);
-  --terminal-output-color: #D4AF37;
-  --footer-bg:         #0E0C0A;
-  --nav-border-scrolled:   rgba(212, 175, 55, 0.3);
-  --status-glow:           rgba(212, 175, 55, 0.7);
-  --status-glow-dim:       rgba(212, 175, 55, 0.35);
-  --blueprint-line-strong: rgba(212, 175, 55, 0.55);
-  --blueprint-line-light:  rgba(212, 175, 55, 0.2);
-  --card-bar-bg:           rgba(212, 175, 55, 0.5);
-  --node-glow:             rgba(212, 175, 55, 0.12);
-  --spine-color:           rgba(212, 175, 55, 0.5);
-  --spine-glow:            rgba(212, 175, 55, 0.25);
-  --nebula-hover:          #D4AF37;
-  --nebula-hover-glow:     rgba(212, 175, 55, 0.4);
-  /* Golden Hour extras */
-  --golden-hour-terminal-border: 1px solid rgba(212, 175, 55, 0.5);
-}
-
 /* ── Reset & Base ───────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -580,12 +495,9 @@ ul { list-style: none; }
   color: var(--accent);
 }
 
-/* In dark mode show sun (to switch to light); in light mode show moon (to switch to dark);
-   in solar-eclipse mode show eclipse icon; in golden-hour mode show sunset icon */
-.theme-icon-sun     { display: inline; }
-.theme-icon-moon    { display: none; }
-.theme-icon-eclipse { display: none; }
-.theme-icon-sunset  { display: none; }
+/* In dark mode show sun (to switch to light); in light mode show moon (to switch to dark) */
+.theme-icon-sun  { display: inline; }
+.theme-icon-moon { display: none; }
 
 [data-theme="light"] .theme-icon-sun  { display: none; }
 [data-theme="light"] .theme-icon-moon { display: inline; }
@@ -1230,115 +1142,6 @@ ul { list-style: none; }
   letter-spacing: 0.15em;
 }
 
-/* ── Solar Eclipse Theme Specifics ─────────────────────────── */
-
-/* Background: circular pulse glow behind content */
-[data-theme="solar-eclipse"] body {
-  background-image: radial-gradient(ellipse 60% 40% at 50% 42%, rgba(255, 191, 0, 0.07) 0%, transparent 70%),
-    radial-gradient(circle, var(--body-dot) 1px, transparent 1px);
-  background-size: auto, 24px 24px;
-}
-
-/* Main heading: pure white with golden drop-shadow */
-[data-theme="solar-eclipse"] .hero-title {
-  color: #FFFFFF;
-  text-shadow: var(--solar-heading-shadow);
-}
-
-/* Sub-text warm grey */
-[data-theme="solar-eclipse"] .hero-tagline,
-[data-theme="solar-eclipse"] .hero-description {
-  color: #8E8E8E;
-}
-
-/* Terminal: borderless, 10% transparent, Soft Cream text */
-[data-theme="solar-eclipse"] .hero-terminal {
-  background: rgba(15, 14, 12, 0.9);
-  border: none;
-}
-
-[data-theme="solar-eclipse"] .terminal-bar {
-  border-bottom: none;
-}
-
-[data-theme="solar-eclipse"] .t-line {
-  color: #F5F5DC;
-}
-
-[data-theme="solar-eclipse"] .t-output {
-  color: #F5F5DC;
-}
-
-/* Tech Tags: no borders, nebula glow */
-[data-theme="solar-eclipse"] .shadow-tag {
-  border: none;
-  text-shadow: 0 0 8px rgba(255, 191, 0, 0.3);
-}
-
-[data-theme="solar-eclipse"] .tag {
-  border: none;
-  text-shadow: 0 0 8px rgba(255, 191, 0, 0.3);
-}
-
-/* Digital Spine: Gradient Line (Transparent → Gold → Transparent) */
-[data-theme="solar-eclipse"] .hero-content::before {
-  background: linear-gradient(to bottom, transparent, #FFBF00, transparent);
-}
-
-[data-theme="solar-eclipse"] .hero-inner::before {
-  background: linear-gradient(to bottom, transparent, #FFBF00, transparent);
-}
-
-/* Solar Flare: slow pulsing animation on gold elements */
-[data-theme="solar-eclipse"] .accent,
-[data-theme="solar-eclipse"] .status-dot,
-[data-theme="solar-eclipse"] .t-prompt,
-[data-theme="solar-eclipse"] .t-cursor,
-[data-theme="solar-eclipse"] .logo-svg-icon,
-[data-theme="solar-eclipse"] .loader-logo {
-  animation: solar-flare 3s ease-in-out infinite;
-}
-
-/* Solar Eclipse theme toggle icons */
-[data-theme="solar-eclipse"] .theme-icon-sun  { display: none; }
-[data-theme="solar-eclipse"] .theme-icon-moon { display: none; }
-[data-theme="solar-eclipse"] .theme-icon-eclipse { display: inline; }
-
-/* ── Golden Hour Theme Specifics ────────────────────────────── */
-
-/* Warm amber dot grid background */
-[data-theme="golden-hour"] body {
-  background-image: radial-gradient(circle, rgba(212, 175, 55, 0.1) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* Terminal: frosted deep brown with metallic gold border */
-[data-theme="golden-hour"] .hero-terminal {
-  background: rgba(18, 16, 14, 0.8);
-  border: var(--golden-hour-terminal-border);
-  backdrop-filter: blur(4px);
-}
-
-[data-theme="golden-hour"] .terminal-bar {
-  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-}
-
-/* Digital Spine: golden gradient pulse */
-[data-theme="golden-hour"] .hero-content::before {
-  background: linear-gradient(to bottom, transparent, #D4AF37, transparent);
-  animation: golden-spine-pulse 3s ease-in-out infinite;
-}
-
-[data-theme="golden-hour"] .hero-inner::before {
-  background: linear-gradient(to bottom, transparent, #D4AF37, transparent);
-  animation: golden-spine-pulse 3s ease-in-out infinite;
-}
-
-/* Golden Hour theme toggle icons */
-[data-theme="golden-hour"] .theme-icon-sun    { display: none; }
-[data-theme="golden-hour"] .theme-icon-moon   { display: none; }
-[data-theme="golden-hour"] .theme-icon-sunset { display: inline; }
-
 /* ── Animations ─────────────────────────────────────────────── */
 @keyframes blink {
   0%, 100% { opacity: 1; }
@@ -1352,16 +1155,6 @@ ul { list-style: none; }
 
 @keyframes dash {
   to { stroke-dashoffset: -16; }
-}
-
-@keyframes solar-flare {
-  0%, 100% { opacity: 1; filter: brightness(1); }
-  50%       { opacity: 0.75; filter: brightness(1.3) drop-shadow(0 0 6px rgba(255, 191, 0, 0.6)); }
-}
-
-@keyframes golden-spine-pulse {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 0.85; }
 }
 
 /* Scroll-reveal base state */
