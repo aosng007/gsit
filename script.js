@@ -38,7 +38,10 @@
     themeToggle.addEventListener('click', function () {
       const current = htmlEl.getAttribute('data-theme');
       const currentIndex = THEMES.indexOf(current);
-      const next = THEMES[(currentIndex < 0 ? 0 : currentIndex + 1) % THEMES.length];
+      const nextIndex = currentIndex < 0
+        ? (1 % THEMES.length)
+        : ((currentIndex + 1) % THEMES.length);
+      const next = THEMES[nextIndex];
       applyTheme(next, true);
     });
   }
