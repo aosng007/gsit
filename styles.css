@@ -547,24 +547,17 @@ ul { list-style: none; }
   mask-image: linear-gradient(90deg, transparent 28%, black 46%, black 54%, transparent 72%);
 }
 
-/* ── Shadow Safety Zone Tags (desktop-only, inside hero-decoration) ── */
-.shadow-tags {
+/* ── Tech Stack Nebula (desktop-only background decoration) ── */
+.tech-nebula {
   display: none;
-  flex-direction: column;
-  gap: 10px;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   pointer-events: none;
-  z-index: 1;
-  width: 550px;
 }
 
-.shadow-tags-upper,
-.shadow-tags-lower {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-
-.shadow-tag {
+.tn-tag {
+  position: absolute;
   font-family: var(--font-mono);
   font-size: 11px;
   line-height: 1;
@@ -575,25 +568,30 @@ ul { list-style: none; }
   pointer-events: auto;
   cursor: default;
   user-select: none;
-  opacity: 0.35;
-  text-shadow: 0 0 5px rgba(255, 193, 7, 0.4);
   transition: opacity 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  text-shadow: 0 0 3px rgba(255, 193, 7, 0.4);
 }
 
-.shadow-tag.secondary {
+.tn-primary  { opacity: 0.35; }
+.tn-secondary {
+  opacity: 0.3;
   font-size: 10px;
-  opacity: 0.28;
 }
 
-.shadow-tag:hover {
+.tn-tag:hover {
   opacity: 0.8;
   border-color: var(--nebula-hover);
   box-shadow: 0 0 8px var(--nebula-hover-glow);
 }
 
 @media (min-width: 1200px) {
-  .shadow-tags {
-    display: flex;
+  .tech-nebula {
+    display: block;
+    /* Constrain to "central-right" zone: from the Digital Spine to the
+       right edge of the hero-inner (max-width: 1200px, centered).
+       Avoids viewport-relative overflow past the hero layout bounds. */
+    left: calc(50% + 30px);
+    right: max(3rem, calc(50% - 600px));
   }
 }
 
@@ -1238,16 +1236,12 @@ ul { list-style: none; }
     transform: none;
     flex-shrink: 0;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+    align-items: center;
     z-index: 2;
   }
 
   .hero-terminal {
     flex: 0 0 550px;
-    position: relative;
-    z-index: 2;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--accent-glow);
   }
 
