@@ -1,7 +1,7 @@
 /* =============================================================
    GOLDEN SUNFLOWER — script.js
    Loading animation, typing effect, scroll effects, mobile nav,
-   dark/light/blueprint theme toggle
+   dark/light/blueprint/editorial theme toggle
    ============================================================= */
 
 (function () {
@@ -11,8 +11,8 @@
   const themeToggle = document.getElementById('themeToggle');
   const htmlEl = document.documentElement;
 
-  // Known themes in cycle order: dark → light → blueprint → dark
-  const THEMES = ['dark', 'light', 'blueprint'];
+  // Known themes in cycle order: dark → light → blueprint → editorial → dark
+  const THEMES = ['dark', 'light', 'blueprint', 'editorial'];
 
   // Helper: normalize to a known theme and keep the toggle button's
   // aria-pressed state in sync. Pass persist=true only on user interaction
@@ -22,8 +22,10 @@
     const normalized = THEMES.includes(theme) ? theme : 'dark';
     htmlEl.setAttribute('data-theme', normalized);
     if (themeToggle) {
-      // aria-pressed="true" means the button is currently in "dark" state
-      themeToggle.setAttribute('aria-pressed', normalized === 'dark' ? 'true' : 'false');
+      // Update aria-label to announce the next theme in the cycle
+      const nextIndex = (THEMES.indexOf(normalized) + 1) % THEMES.length;
+      const next = THEMES[nextIndex];
+      themeToggle.setAttribute('aria-label', 'Switch to ' + next + ' theme');
     }
     if (persist) {
       try { localStorage.setItem('gs-theme', normalized); } catch (e) {}
