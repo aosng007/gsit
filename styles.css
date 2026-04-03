@@ -56,14 +56,6 @@
   --font-serif:        'Source Serif 4', 'Charter', Georgia, 'Times New Roman', serif;
 }
 
-/* ── Dark Mode explicit alias (mirrors :root defaults) ─────── */
-[data-theme="dark"] {
-  --accent-gold:       #FFC107;
-  --card-border:       rgba(255, 255, 255, 0.1);
-  --card-shadow:       none;
-  --card-shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
-
 /* ── Light Mode Overrides ───────────────────────────────────── */
 [data-theme="light"] {
   --bg-primary:   #FFFFFF;
@@ -488,7 +480,7 @@ ul { list-style: none; }
   background: var(--nav-bg);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(8px);
-  transition: border-color 0.25s ease, background-color 0.4s ease, color 0.4s ease;
+  transition: border-color 0.4s ease, background-color 0.4s ease, color 0.4s ease;
 }
 
 .navbar.scrolled {
@@ -1181,19 +1173,18 @@ ul { list-style: none; }
   font-weight: 500;
   text-decoration: none;
   opacity: 0;
-  visibility: hidden;
   pointer-events: none;
   transform: translateX(-6px);
-  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
   align-self: flex-start;
 }
 
 .service-card:hover .card-learn-more,
+.service-card:focus .card-learn-more,
 .service-card:focus-within .card-learn-more,
 .card-learn-more:focus,
 .card-learn-more:focus-visible {
   opacity: 1;
-  visibility: visible;
   pointer-events: auto;
   transform: translateX(0);
 }
