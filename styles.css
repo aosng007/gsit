@@ -1120,7 +1120,7 @@ ul { list-style: none; }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
   gap: 2rem;
 }
 
@@ -1151,7 +1151,6 @@ ul { list-style: none; }
   font-family: var(--font-body);
   font-variant: small-caps;
   letter-spacing: 0.05em;
-  text-transform: uppercase;
   color: var(--accent-gold);
   transition: color 0.4s ease;
 }
@@ -1182,13 +1181,20 @@ ul { list-style: none; }
   font-weight: 500;
   text-decoration: none;
   opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   transform: translateX(-6px);
-  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease, visibility 0.3s ease;
   align-self: flex-start;
 }
 
-.service-card:hover .card-learn-more {
+.service-card:hover .card-learn-more,
+.service-card:focus-within .card-learn-more,
+.card-learn-more:focus,
+.card-learn-more:focus-visible {
   opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
   transform: translateX(0);
 }
 
