@@ -1218,15 +1218,15 @@ ul { list-style: none; }
 
 /* Network Diagram */
 .partners-visual {
-  width: 220px;
-  height: 220px;
+  width: 360px;
+  height: 360px;
   flex-shrink: 0;
 }
 
 .network-diagram {
   position: relative;
-  width: 220px;
-  height: 220px;
+  width: 360px;
+  height: 360px;
 }
 
 .network-lines {
@@ -1249,30 +1249,41 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 500;
   border: 1px solid var(--border);
   background: var(--bg-card);
   color: var(--text-muted);
+  min-width: 60px;
+  max-width: 90px;
+  min-height: 36px;
+  padding: 5px 8px;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.3;
+  transform: translate(-50%, -50%);
 }
 
 .node-center {
-  width: 44px; height: 44px;
-  top: 50%; left: 50%;
+  max-width: 110px;
+  min-height: 44px;
+  padding: 7px 11px;
+  left: 50%; top: 50%;
   transform: translate(-50%, -50%);
   background: var(--bg-card-hover);
   color: var(--accent);
   border-color: var(--cta-border);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   box-shadow: 0 0 12px var(--node-glow);
   animation: none;
 }
 
-.node-a { width: 36px; height: 36px; top:  -2px; left: 50%; transform: translate(-50%, 0); }
-.node-b { width: 36px; height: 36px; top:  30px; right:  0; }
-.node-c { width: 36px; height: 36px; bottom: 10px; right: 20px; }
-.node-d { width: 36px; height: 36px; bottom: 10px; left: 20px; }
-.node-e { width: 36px; height: 36px; top:  30px; left:  0; }
+/* Partner nodes — centered on radial coords (radius 130px, pentagon from top) */
+.node-a { left: 180px; top:  50px; }
+.node-b { left: 304px; top: 140px; }
+.node-c { left: 256px; top: 285px; }
+.node-d { left: 104px; top: 285px; }
+.node-e { left:  56px; top: 140px; }
 
 /* ── Footer ─────────────────────────────────────────────────── */
 .footer {
@@ -1597,6 +1608,30 @@ ul { list-style: none; }
   .industries-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Scale partner diagram down for small screens (300/360 ≈ 0.833) */
+  .partners-visual,
+  .network-diagram {
+    width: 300px;
+    height: 300px;
+  }
+
+  .node {
+    font-size: 0.48rem;
+    max-width: 75px;
+    min-width: 50px;
+  }
+
+  .node-center {
+    font-size: 0.55rem;
+    max-width: 90px;
+  }
+
+  .node-a { left: 150px; top:  42px; }
+  .node-b { left: 253px; top: 117px; }
+  .node-c { left: 213px; top: 237px; }
+  .node-d { left:  87px; top: 237px; }
+  .node-e { left:  47px; top: 117px; }
 }
 
 /* ── Mobile Landscape (short screens / rotated phones) ─────── */
