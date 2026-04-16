@@ -700,7 +700,7 @@ ul { list-style: none; }
   cursor: pointer;
   width: 30px;
   height: 30px;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   color: var(--text-muted);
@@ -715,8 +715,6 @@ ul { list-style: none; }
   color: var(--accent);
 }
 
-/* Each icon shows the *next* theme in the cycle: dark→light→blueprint→editorial→dark */
-/* dark (default): show sun → clicking switches to light */
 .theme-icon-sun       { display: inline; }
 .theme-icon-moon      { display: none; }
 .theme-icon-blueprint { display: none; }
