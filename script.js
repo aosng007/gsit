@@ -1,51 +1,15 @@
 /* =============================================================
    GOLDEN SUNFLOWER — script.js
    Loading animation, typing effect, scroll effects, mobile nav,
-   dark/light/blueprint/editorial theme toggle
+   fixed editorial theme
    ============================================================= */
 
 (function () {
   'use strict';
 
   /* ── Theme Toggle ──────────────────────────────────────────── */
-  const themeToggle = document.getElementById('themeToggle');
   const htmlEl = document.documentElement;
-
-  // Known themes in cycle order: dark → light → blueprint → editorial → dark
-  const THEMES = ['dark', 'light', 'blueprint', 'editorial'];
-
-  // Helper: normalize to a known theme and keep the toggle button's
-  // aria-pressed state in sync. Pass persist=true only on user interaction
-  // so first-time visitors don't get localStorage written on load.
-  function applyTheme(theme, persist) {
-    // Coerce to a known value; default to "dark" for any unexpected input.
-    const normalized = THEMES.includes(theme) ? theme : 'dark';
-    htmlEl.setAttribute('data-theme', normalized);
-    if (themeToggle) {
-      // Update aria-label to announce the next theme in the cycle
-      const nextIndex = (THEMES.indexOf(normalized) + 1) % THEMES.length;
-      const next = THEMES[nextIndex];
-      themeToggle.setAttribute('aria-label', 'Switch to ' + next + ' theme');
-    }
-    if (persist) {
-      try { localStorage.setItem('gs-theme', normalized); } catch (e) {}
-    }
-  }
-
-  // Sync the toggle button with whichever theme is already active on load
-  // (set by either the HTML default or the inline <head> script).
-  // Do NOT persist — only write localStorage in response to a user toggle.
-  applyTheme(htmlEl.getAttribute('data-theme'), false);
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function () {
-      const current = htmlEl.getAttribute('data-theme');
-      const normalized = THEMES.includes(current) ? current : 'dark';
-      const currentIndex = THEMES.indexOf(normalized);
-      const next = THEMES[(currentIndex + 1) % THEMES.length];
-      applyTheme(next, true);
-    });
-  }
+  htmlEl.setAttribute('data-theme', 'editorial');
 
   /* ── Digital Clock ─────────────────────────────────────────── */
   var navClock = document.getElementById('navClock');
